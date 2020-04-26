@@ -5,7 +5,7 @@
 library(tidyverse)
 library(googledrive)  # va a pedir autentica acceso a cuenta de GMAIL vía API de Tidyverse
 
-
+#### GOOGLE DRIVE BACKUP #####
 # RUTA DONDE ESTAN LOS DATOS
 ruta <- "https://drive.google.com/open?id=1LzqbqS2rmMthzYpZYhPU3R8umaJZOt_U"
 
@@ -41,3 +41,28 @@ archivos %>%
   print(n = Inf)
 
 
+
+
+
+### REPO GITHUB ##### TEST DATA (HAY QUE CAMBIAR POR REPO DE DATA COMPLETO)
+
+
+    pg <- xml2::read_html(glue::glue('https://github.com/TuQmano/test_data'))
+
+    
+    filelist <- rvest::html_nodes(pg, "a") %>%
+      rvest::html_attr(name = "href" ) %>%
+      stringr::str_match('.*csv') %>%
+      stats::na.omit() %>% 
+      as_tibble()  %>% 
+      rename(name = V1) %>% 
+      mutate(name = str_remove(name, pattern = "/TuQmano/test_data/blob/master/")) %>% 
+      separate(name, into = c("distrito", "categoria", "turno"), 
+               sep = "[:punct:]", remove = F) %>% 
+      mutate(anio = str_remove_all(turno, "\\D"),
+             turno = str_remove_all(turno, "\\d")) %>% 
+      print()
+    
+    
+    
+    
