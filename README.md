@@ -1,4 +1,7 @@
-# polAr - Data
+# {polAr}Data
+
+<img src=https://raw.githubusercontent.com/electorArg/polAr/master/hex/hex-data.png" width="200">
+
 
 ## Repositorio de datos de [polAr]() 
 
@@ -43,17 +46,18 @@ Es importante primero instalar y configurar los `drivers` de las bases de datos 
 - Instructivo general del paquete `db` de [RStudio](https://db.rstudio.com), [los *drivers*](https://db.rstudio.com/best-practices/drivers/) necesarios y datos específicos para el caso particular de conexiones de [`sqlite`](https://db.rstudio.com/databases/sqlite/).
 
 
-##### EJEMPLOS
+##### Documentación del proceso (en revisión)
 
-A modo de ejmplo compartimos abajo el código con el que trabajamos para procesar los datos de las elecciones de 2013 en Tucumán. 
+Vale remarcar que cada una de las categorías electorales  (diputados, senaodres y presidente) tiene una dinámica propia. La única de ellas que comparte la misma oferta electoral en todos los distritos es naturalmente la categoría 'presidente'. En tanto,  todas las provincias eligen 'diputados' cada dos años, pero solo ocho provincias eligen 'senadores' cada dos años. Esto es, los representantes del Senado de cada provincia se renueva cada 6 años (o tres procesos electorales). 
 
-* Un [notebook]() de `Rmd` que incluye las consultas `SQL` de P.A.S.O. y Generales. 
+Partiendo de ese escenario: 
 
-* Los archivos resultantes (`.csv`) en el [repositorio](). 
+* Generamos [notebooks]() de `Rmd` que incluye las consultas `SQL` de P.A.S.O. y Generales para las distintas categorías electorales presentes en cada ciclo electoral.  
 
-## El _notebook_ incluye:
 
-**(1) `R` _chunk_ para establacer la conexión con las bases de datos de `SQLite` con resultados electorales**
+## Los _notebook_ incluyen:
+
+**(1)  _chunk_ de `R` para establacer la conexión con las bases de datos de `SQLite` con resultados electorales**
 
 -   Cargamos las librerias
 -   Establecimos la ruta donde se encuentran los archivos
@@ -66,23 +70,27 @@ A modo de ejmplo compartimos abajo el código con el que trabajamos para procesa
 -   La columna `depNombre` incluye el nombre de las provinicas, cuyo
     `depCodigoDepartamento == 999`, y nos permite ver rápidamente el código de cada provincia.
 
-**(3) SQL chunk para obtener los nombres de partidos (y sus codigos) para una eleccion particular**
+**(3) SQL _chunk_ para obtener los nombres de partidos (y sus codigos) para una eleccion particular**
 
 -   En las opciones de `sql` la **`connection`** lleva el nombre correspondiente a la base de datos de la elección.
 
--   El código de la provincia - `vot_pro_CodigoProvincia`- para la provincia de Tucumán es el `23`(del *chunk* previo).
+-   Por ejemplo, el código de la provincia - `vot_pro_CodigoProvincia`- para la provincia de Tucumán es el `23`(del *chunk* previo).
 
 -   Si quiero guardar la consulta como `data.frame` de `R` tengo que agregar opción `output.var = "NombreDataFrame"` en el *chunk* de `sql`.
 
 -   Luego podemos exportar a `csv` con el siguiente comando desde la consola: `readr::write_csv(NombreDataFrame, "NombreDataFrame.csv")`
 
+- Las listas exportadas para cada elección se compilaron en esta [carpeta](https://github.com/electorArg/PolAr_Data/tree/master/listas) 
 
-**(4) SQL chunk con la consulta final de los resultados electorales**
+
+**(4) SQL _chunk_ con la consulta final de los resultados electorales**
 
 -   Obtuvimos los valores absolutos de `listas`, `blancos`, `electores`, y `validos`.
 
 -   Tambien extrajimos los códigos de identificación de las observaciones (`mesa`, `circuito`, `departamento` y `provincia`) para poder agrupar a distintos niveles. Cada fila corresponde a los resultados de una mesa electoral de una elección determinada. 
 
 -   Guardamos con `output.var` como dataframe. Repetimos proceso de `(3)`para exportar como `csv`.
+
+- Las bases con resultados exportadas para cada elección se compilaron en esta [carpeta](https://github.com/electorArg/PolAr_Data/tree/master/data) 
 
 
