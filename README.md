@@ -1,9 +1,9 @@
 # {polAr}Data
 
-<img src=https://raw.githubusercontent.com/electorArg/polAr/master/hex/hex-data.png" width="200">
+<img src=https://github.com/electorArg/polAr/raw/master/hex/hex-data.png" width="200">
 
 
-## Repositorio de datos de [polAr]() 
+## Repositorio de datos de [polAr](https://electorarg.github.io/polAr/) 
 
 
 ### Datos electorales
@@ -48,11 +48,11 @@ Es importante primero instalar y configurar los `drivers` de las bases de datos 
 
 ##### Documentación del proceso (en revisión)
 
-Vale remarcar que cada una de las categorías electorales  (diputados, senaodres y presidente) tiene una dinámica propia. La única de ellas que comparte la misma oferta electoral en todos los distritos es naturalmente la categoría 'presidente'. En tanto,  todas las provincias eligen 'diputados' cada dos años, pero solo ocho provincias eligen 'senadores' cada dos años. Esto es, los representantes del Senado de cada provincia se renueva cada 6 años (o tres procesos electorales). 
+Vale remarcar que cada una de las categorías electorales (diputados, senaodres y presidente) tiene una dinámica propia. La única de ellas que comparte la misma oferta electoral en todos los distritos es naturalmente la categoría 'presidente'. En tanto,  todas las provincias eligen 'diputados' cada dos años, pero solo ocho provincias eligen 'senadores' cada dos años. Esto es, los representantes del Senado de cada provincia se renueva cada 6 años (o tres procesos electorales). 
 
 Partiendo de ese escenario: 
 
-* Generamos [notebooks]() de `Rmd` que incluye las consultas `SQL` de P.A.S.O. y Generales para las distintas categorías electorales presentes en cada ciclo electoral.  
+* Generamos [notebooks](https://github.com/electorArg/PolAr_Data/tree/master/scripts/data_processing)  `Rmd` que incluye las consultas `SQL` de P.A.S.O. y Generales para las distintas categorías electorales presentes en cada ciclo electoral.  
 
 
 ## Los _notebook_ incluyen:
