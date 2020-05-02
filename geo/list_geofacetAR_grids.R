@@ -446,6 +446,23 @@ write_rds(x = data, path = "geo/grillas_geofacet.rds")
 
 
 
+#### DATA FRAME codprov  ~ name_prov
+
+
+provCode <- tibble(name_prov = 
+                         c("CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES","ENTRE RIOS","FORMOSA", 
+                           "JUJUY", "LA PAMPA", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN","BUENOS AIRES","RIO NEGRO",
+                           "SALTA", "SANTA CRUZ", "SANTA FE", "SANTIAGO DEL ESTERO", "SAN JUAN", "SAN LUIS", "TIERRA DEL FUEGO", "TUCUMAN"), 
+                       codprov = 
+                         c('01','03','06','07','04','05','08','09',
+                           '10','11','12','13','14','15','02','16',
+                           '17','20','21','22','18','19','24','23')) 
+
+  write_csv(provCode, "geo/provCode.csv")
+
+
+
+
 
 
 
