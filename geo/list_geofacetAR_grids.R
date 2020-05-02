@@ -3,11 +3,11 @@
 
 #####  1  Creamos un data.frame por cada grilla
 #####  2  Agrumapos en un lista de data.frames
-#####  3  Guardamos la lista como RData ??
-#####  4  Se mantiene este archivo como work in progress de las grillas pra poder modificarlas mas facilmente
+#####  3  Guardamos la lista como RData 
 
 
 library(tidyverse)
+library(purrr)
 
 ### NACIONAL ####
 argentina <-  data.frame(
@@ -440,19 +440,10 @@ names(data) <- c("ARGENTINA", "CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA",
                  "SAN JUAN", "SAN LUIS", "TIERRA DEL FUEGO", "TUCUMAN")
 
 
-# Guardo todos los df en un solo objeto
-
-save(data, file =   "data_raw/grillas_geofacet rda")
-
+#Guardo lista de grillas en destino /geo
+write_rds(x = data, path = "geo/grillas_geofacet.rds")
 
 
-
-
-provinicas <- names(data)
-
-as.vector(provincias)
-as.tibble(provincias) %>%
-  print(n = Inf)
 
 
 

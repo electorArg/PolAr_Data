@@ -1,4 +1,4 @@
-# {polAr}Data
+# {polAr}Data - POLítica ARgentina usando `R`
 
 <img src="https://github.com/electorArg/polAr/blob/master/hex/hex-data.png?raw=true" width="200">
 
@@ -25,6 +25,9 @@
 #### Fuentes de datos
 
 La fuente original de datos para resultados de elecciones nacionales (2003 - 2017) provienen del **_Atlas Electoral de Andy Tow_**. Se puede acceder a ellas en  las sección de **[descargas de su sitio web](https://www.andytow.com/)**. Para acceder es necesario autenticar la consulta a través de una cuenta de *Twitter*. 
+
+Los datos de las elecciones de 2019 tienen una estructura diferente de las de años anteriores (primera vez que cambió proveedor de escrutinio provisorio desde inicio de nuestra muestra en 2003). Los resultados pueden ser reconstruidos utilizando unos paquetes especificos para cada turno: [paso](https://github.com/pmoracho/paso2019) y [generales](https://github.com/pmoracho/elecciones.ar.2019).
+
 
 ---
 
@@ -80,7 +83,6 @@ Partiendo de ese escenario:
 
 -   Luego podemos exportar a `csv` con el siguiente comando desde la consola: `readr::write_csv(NombreDataFrame, "NombreDataFrame.csv")`
 
-- Las listas exportadas para cada elección se compilaron en esta [carpeta](https://github.com/electorArg/PolAr_Data/tree/master/listas) 
 
 
 **(4) SQL _chunk_ con la consulta final de los resultados electorales**
@@ -91,6 +93,5 @@ Partiendo de ese escenario:
 
 -   Guardamos con `output.var` como dataframe. Repetimos proceso de `(3)`para exportar como `csv`.
 
-- Las bases con resultados exportadas para cada elección se compilaron en esta [carpeta](https://github.com/electorArg/PolAr_Data/tree/master/data) 
 
 
