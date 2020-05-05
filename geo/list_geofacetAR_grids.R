@@ -460,9 +460,11 @@ provCode <- tibble(name_prov =
 
   write_csv(provCode, "geo/provCode.csv")
 
-
-
-
+  name <- "ARGENTINA"
+  
+  get <- download.file("https://github.com/TuQmano/test_data/blob/master/grillas_geofacet.rds?raw=true", destfile = "geogrids.rds")
+  
+load("https://github.com/TuQmano/test_data/blob/master/grillas_geofacet.rds?raw=true")
 
 
 
