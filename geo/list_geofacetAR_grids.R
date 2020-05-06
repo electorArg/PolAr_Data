@@ -26,11 +26,11 @@ argentina <-  data.frame(
            "08", "12", "21", "02", "01",
            "18", "19", "11", "13", "15",
            "16", "07", "20", "24"),
-  name_es = c("Jujuy", "Formosa", "Misiones", "Salta", "Tucuman",
-              "Catamarca", "Chaco", "Corrientes", "S del Estero", "Cordoba",
-              "Entre Rios", "La Rioja", "Santa Fe", "Buenos Aires", "C A B A ",
-              "San Juan", "San Luis", "La Pampa", "Mendoza", "Neuquen",
-              "Rio Negro", "Chubut", "Santa Cruz", "T  del Fuego"),
+  name = c( "JUJUY","FORMOSA", "MISIONES","SALTA", "TUCUMAN",
+            "CATAMARCA","CHACO","CORRIENTES","SANTIAGO DEL ESTERO","CORDOBA",
+            "ENTRE RIOS","LA RIOJA" ,"SANTA FE","BUENOS AIRES","CABA",
+            "SAN JUAN","SAN LUIS","LA PAMPA","MENDOZA","NEUQUEN",
+            "RIO NEGRO","CHUBUT","SANTA CRUZ", "TIERRA DEL FUEGO"),
   stringsAsFactors = FALSE
 )
 
@@ -459,15 +459,6 @@ provCode <- tibble(name_prov =
                            '17','20','21','22','18','19','24','23')) 
 
   write_csv(provCode, "geo/provCode.csv")
-
-  name <- "ARGENTINA"
-  
-  get <- download.file("https://github.com/TuQmano/test_data/blob/master/grillas_geofacet.rds?raw=true", destfile = "geogrids.rds")
-  
-load("https://github.com/TuQmano/test_data/blob/master/grillas_geofacet.rds?raw=true")
-
-
-
 
 
 
