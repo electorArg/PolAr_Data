@@ -8,6 +8,7 @@
 
 library(tidyverse)
 library(purrr)
+library(geofaceteAR)
 
 ### NACIONAL ####
 argentina <-  data.frame(
@@ -431,6 +432,29 @@ data <- list(argentina, caba, catamarca, chaco, chubut, cordoba, corrientes,
              entre_rios, formosa, jujuy, la_pampa, la_rioja, mendoza, misiones,
              neuquen, pba, rio_negro, salta, santa_cruz, santa_fe, santiago_del_estero,
              san_juan, san_luis, tierra_del_fuego, tucuman)
+
+
+### recodifico nombres de departamentos con nombres validos de INDEC 
+
+
+recodificar <- function(data){
+  
+  
+  codigos <- show_arg_codes(nivel = "departamentos",viewer = F) %>%  
+    select(code = coddepto, nomdepto_censo) %>% print()
+  
+  
+  data %>% left_join(codigos) %>% 
+    as_tibble() %>% 
+    mutate(name = str_to_title(nomdepto_censo)) %>% 
+    select(-nomdepto_censo)
+  
+}
+
+data <- map(data, recodificar)
+
+
+
 
 
 #Nombres de provincias
