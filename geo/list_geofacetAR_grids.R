@@ -427,11 +427,18 @@ tucuman <- data.frame(
   stringsAsFactors = FALSE
 )
 
+
+
+
+
+
 ### CREO UN UNICO data.frame COMO LIST CON CADA UNO DE LOS DISTRITOS
-data <- list(argentina, caba, catamarca, chaco, chubut, cordoba, corrientes,
+data <- list(caba, catamarca, chaco, chubut, cordoba, corrientes,
              entre_rios, formosa, jujuy, la_pampa, la_rioja, mendoza, misiones,
              neuquen, pba, rio_negro, salta, santa_cruz, santa_fe, santiago_del_estero,
              san_juan, san_luis, tierra_del_fuego, tucuman)
+
+
 
 
 ### recodifico nombres de departamentos con nombres validos de INDEC 
@@ -452,6 +459,20 @@ recodificar <- function(data){
 }
 
 data <- map(data, recodificar)
+
+
+
+
+
+
+
+
+### CREO UN UNICO data.frame COMO LIST CON CADA UNO DE LOS DISTRITOS
+data <- list(argentina, caba, catamarca, chaco, chubut, cordoba, corrientes,
+             entre_rios, formosa, jujuy, la_pampa, la_rioja, mendoza, misiones,
+             neuquen, pba, rio_negro, salta, santa_cruz, santa_fe, santiago_del_estero,
+             san_juan, san_luis, tierra_del_fuego, tucuman)
+
 
 
 
