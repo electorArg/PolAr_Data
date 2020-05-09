@@ -9,8 +9,13 @@
 library(tidyverse)
 library(purrr)
 library(geofaceteAR)
+library(geofaceteAR)
+
+
 
 ### NACIONAL ####
+
+
 argentina <-  data.frame(
   col = c(1, 3, 5, 1, 2,
           1, 3, 4, 2, 2,
@@ -36,16 +41,34 @@ argentina <-  data.frame(
 )
 
 
+
+########### PROVINCIAS ##
+
+codigos <- show_arg_codes(nivel = "departamentos",viewer = F) %>% 
+  select(id, code = coddepto, nombre = nomdepto_censo)
+
+
+
 # CABA ####
 caba <- data.frame(
   code = c("013", "012", "011", "014", "015", "002", "006", "010",
            "005", "003", "007", "009", "001", "004", "008"), # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
-  name = c("Comuna 13", "Comuna 12", "Comuna 11", "Comuna 14", "Comuna 15", "Comuna 2", "Comuna 6", "Comuna 10",
-           "Comuna 5", "Comuna 3", "Comuna 7", "Comuna 9", "Comuna 1", "Comuna 4", "Comuna 8"),
+  name = c("Comuna 13", "Comuna 12", "Comuna 11", "Comuna 14", "Comuna 15", "Comuna 02", "Comuna 06", "Comuna 10",
+           "Comuna 05", "Comuna 03", "Comuna 07", "Comuna 09", "Comuna 01", "Comuna 04", "Comuna 08"),
   row = c(1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 3, 4, 5),
   col = c(3, 2, 1, 3, 2, 4, 2, 1, 3, 4, 2, 1, 5, 3, 2),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% print()
+
+
+codigos %>% 
+  filter(id == "CABA") %>% 
+  left_join(caba) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE))
+
+
+
 
 
 #  CATAMARCA ####
@@ -62,16 +85,30 @@ catamarca <- data.frame(
   row = c(1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6),
   col = c(1, 3, 2, 1, 3, 5, 6, 4, 3, 6, 5, 4, 6, 5, 4, 7),
   stringsAsFactors = FALSE
-)
+)  %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "CATAMARCA") %>% 
+  left_join(catamarca) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE))
+
+
+
+
 
 ### CHACO ####
 
 chaco<- data.frame(
-  name = c("Gral Guemes", "Gral S Martin", "Ate Brown",
+  name = c("Gral Guemes", "LIBERTADOR GENERAL SAN MARTIN", "ALMIRANTE BROWN",
            "Gral Belgrano", "Maipu", "Quitilipi", "Sgto Cabral",
            "25 de Mayo", "9 de Julio", "Independencia", "Bermejo",
            "Gral Donovan", "Cmdte Fernandez", "Chacabuco", "O'Higgins",
-           "1 de Mayo", "12 de Octubre", "Libertad", "Pres  de la Plaza",
+           "1° DE MAYO", "12 de Octubre", "Libertad", "Pres  de la Plaza",
            "S Lorenzo", "2 de abril", "Mayor L J  Fontana", "S Fernando",
            "Fray J S M de Oro", "Tapenaga"),
   code = c("025", "008", "024", "018", "016", "014", "005", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
@@ -81,7 +118,20 @@ chaco<- data.frame(
   row = c(2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6),
   col = c(3, 4, 1, 2, 3, 4, 5, 5, 2, 3, 7, 6, 4, 1, 3, 7, 1, 6, 5, 4, 2, 4, 6, 3, 5),
   stringsAsFactors = FALSE
-)
+)  %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+codigos %>% 
+  filter(id == "CATAMARCA") %>% 
+  left_join(catamarca) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE))
+
+
+
+
 
 # CHUBUT ####
 
@@ -89,8 +139,8 @@ chaco<- data.frame(
 chubut <- data.frame(
   name = c("Biedma", "Gastre", "Telsen",
            "Cushamen", "Futaleufu", "Gaiman",
-           "Rawson", "Languineo", "Martires",
-           "Paso de Indios", "Tehuelches", "Florentino Ameghino",
+           "Rawson", "Languiñeo", "Martires",
+           "Paso de los Indios", "Tehuelches", "Florentino Ameghino",
            "Rio Senguer", "Escalante", "Sarmiento"),
   code = c("002", "004", "003",
            "005", "006", "012", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
@@ -100,17 +150,27 @@ chubut <- data.frame(
   row = c(1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4),
   col = c(5, 3, 4, 2, 1, 3, 4, 2, 3, 2, 1, 4, 1, 3, 2),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+codigos %>% 
+  filter(id == "CHUBUT") %>% 
+  left_join(chubut) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE))
+
 
 
 #### CORDOBA ####
   cordoba <- data.frame(
     name = c("Sobremonte", "Rio Seco", "Ischilin", "Cruz del Eje", "Totoral",
-"Tulumba", "S Justo", "Minas", "Punilla", "Colon", "Rio Primero",
-"Pocho", "S Alberto", "Capital", "Rio Segundo", "Gral S Martin",
-"S Maria", "S Javier", "Calamuchita", "Union", "M Juarez",
-"Rio Cuarto", "Tercero Arriba", "J Celman",
-"Gral Roca", "R S Pena"),
+"Tulumba", "San Justo", "Minas", "Punilla", "Colon", "Rio Primero",
+"Pocho", "San Alberto", "Capital", "Rio Segundo", "General San Martin",
+"Santa Maria", "San Javier", "Calamuchita", "Union", "Marcos Juarez",
+"Rio Cuarto", "Tercero Arriba", "Juarez Celman",
+"General Roca", "Presidente Roque Saenz Peña"),
     code = c("022", "015", "007", "004", "024",
 "025", "020", "010", "012", "003", "014",
 "011", "018", "001", "016", "006", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
@@ -119,8 +179,18 @@ chubut <- data.frame(
 "005", "017"),
 row = c(1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 7, 7, 8),
 col = c(3, 4, 2, 1, 3, 4, 5, 1, 2, 3, 4, 1, 2, 3, 4, 4, 3, 1, 2, 5, 6, 2, 3, 3, 2, 3),
-stringsAsFactors = FALSE )
+stringsAsFactors = FALSE ) %>% 
+    mutate(name = str_to_upper(name)) %>% 
+    arrange(name) %>% 
+    print()
+  
 
+codigos %>% 
+  filter(id == "CORDOBA") %>% 
+  left_join(cordoba) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+  
 
 
 # CORRIENTES ####
@@ -142,7 +212,18 @@ corrientes <- data.frame(
   row = c(1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6),
   col = c(2, 3, 4, 5, 6, 6, 3, 2, 4, 5, 1, 2, 4, 3, 5, 3, 1, 2, 4, 1, 3, 2, 3, 1, 2),
   stringsAsFactors = FALSE
-  )
+  )%>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "CORRIENTES") %>% 
+  left_join(corrientes) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
 
 
 # ENTRE RIOS ####
@@ -157,20 +238,44 @@ entre_rios <- data.frame(
   row = c(1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6),
   col = c(4, 3, 4, 3, 2, 4, 1, 3, 2, 1, 2, 3, 4, 3, 4, 2, 4),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "ENTRE RIOS") %>% 
+  left_join(entre_rios) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
 
 
 # FORMOSA ####
 
 formosa <- data.frame(
-  name = c("Ramon Lista", "Bermejo", "Matacos", "Patino",
+  name = c("Ramon Lista", "Bermejo", "Matacos", "Patiño",
            "Pilagas", "Pilcomayo", "Formosa", "Pirane", "Laishi"),
   code = c("009", "007", "008", "006", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
            "005", "003", "001", "004", "002"),
   row = c(1, 2, 2, 2, 2, 2, 3, 3, 4),
   col = c(1, 2, 1, 3, 4, 5, 5, 4, 5),
   stringsAsFactors = FALSE
-)
+)%>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+codigos %>% 
+  filter(id == "FORMOSA") %>% 
+  left_join(formosa) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
 
 
 # JUJUY ####
@@ -178,14 +283,28 @@ formosa <- data.frame(
 jujuy <- data.frame(
   name = c("Yavi", "Santa Catalina", "Humahuaca", "Rinconada", "Cochinoca",
            "Valle Grande", "Ledesma", "Susques", "Tumbaya", "Tilcara",
-           "Santa Barbara", "Dr  Manuel Belgrano", "Palpala", "San Pedro", "San Antonio", "El Carmen"),
+           "Santa Barbara", "Dr. Manuel Belgrano", "Palpala", "San Pedro", "San Antonio", "El Carmen"),
   code = c("015", "014", "011", "013", "012", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
            "008", "007", "016", "009", "010",
            "006", "001", "002", "005", "003", "004"),
   row = c(2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6),
   col = c(3, 2, 3, 1, 2, 4, 5, 1, 3, 4, 5, 3, 4, 5, 3, 4),
   stringsAsFactors = FALSE
-)
+)%>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "JUJUY") %>% 
+  left_join(jujuy) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
+
 
 # LA PAMPA ####
 la_pampa <- data.frame(
@@ -200,7 +319,19 @@ la_pampa <- data.frame(
   row = c(1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 7),
   col = c(6, 5, 6, 4, 5, 5, 6, 5, 6, 2, 1, 3, 4, 5, 6, 3, 2, 4, 4, 6, 5, 6),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+
+codigos %>% 
+  filter(id == "LA PAMPA") %>% 
+  left_join(la_pampa) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
 
 
 
@@ -209,8 +340,8 @@ la_pampa <- data.frame(
 la_rioja <- data.frame(
   name = c("Arauco", "Castro Barros", "Famatina", "General Lamadrid", "San Blas de los Sauces",
            "Vinchina", "Capital", "Chilecito", "Coronel Felipe Varela", "Sanagasta",
-           "Chamical", "Gral Penaloza", "Independencia", "General Belgrano", "Gral Quiroga",
-           "Gral Ocampo", "Rosario Vera Penaloza", "Gral San Martin"),
+           "Chamical", "General Angel V. Peñaloza", "Independencia", "General Belgrano", "General Juan F.Quiroga",
+           "General Ocampo", "Rosario Vera Peñaloza", "General San Martin"),
   code = c("004", "003", "007", "009", "005",
            "010", "001", "006", "008", "002", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
            "012", "013", "011", "014", "015",
@@ -218,14 +349,28 @@ la_rioja <- data.frame(
   row = c(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6),
   col = c(6, 5, 3, 1, 4, 2, 6, 4, 3, 5, 6, 5, 4, 6, 5, 6, 5, 6),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "LA RIOJA") %>% 
+  left_join(la_rioja) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
+
 
 #MENDOZA ####
 mendoza <- data.frame(
   name = c("Las Heras", "Lavalle", "Guaymallen", "Lujan de Cuyo", "Capital",
            "San Martin", "Junin", "Godoy Cruz", "Maipu", "Tupungato",
            "Rivadavia", "Tunuyan", "Santa Rosa", "La Paz", "San Rafael",
-           "San Carlos", "General Alvear", "Malargue"),
+           "San Carlos", "General Alvear", "Malargüe"),
   code = c("004", "005", "003", "007", "001", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
            "009", "010", "002", "006", "008",
            "011", "012", "014", "015", "016",
@@ -233,17 +378,30 @@ mendoza <- data.frame(
   row = c(1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 6),
   col = c(2, 4, 3, 1, 2, 4, 4, 2, 3, 2, 3, 1, 4, 5, 3, 2, 4, 2),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "MENDOZA") %>% 
+  left_join(mendoza) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
 
 
 # MISIONES ####
 
 misiones <- data.frame(
   name = c("Iguazu", "General Manuel Belgrano", "El Dorado",
-           "Libertador Gral  San Martin",
+           "Libertador General San Martin",
            "San Pedro", "Montecarlo", "San Ignacio", "Guarani",
            "Cainguas", "Obera",
-           "Candelaria", "25 de Mayo", "Capital", "Leandro N  Alem",
+           "Candelaria", "25 de Mayo", "Capital", "Leandro N. Alem",
            "San Javier", "Concepcion", "Apostoles"),
   code = c("016", "017", "014",
            "009",
@@ -254,24 +412,48 @@ misiones <- data.frame(
   row = c(1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6),
   col = c(5, 6, 5, 4, 6, 5, 3, 5, 4, 3, 2, 4, 1, 2, 3, 2, 1),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "MISIONES") %>% 
+  left_join(misiones) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
 
 
 # NEUQUEN ####
 
 neuquen <- data.frame(
-  name = c("Chos Malal", "Minas", "Pehuenches", "Anelo", "Loncopue",
-           "norquin", "Confluencia",
+  name = c("Chos Malal", "Minas", "Pehuenches", "Añelo", "Loncopue",
+           "Ñorquin", "Confluencia",
            "Picunches", "Zapala", "Alumine", "Catan Lil", "Picun Leufu", "Collon Cura",
            "Huiliches", "Lacar", "Los Lagos"),
   code = c("005", "006", "004", "003", "008",
            "007", "001", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
-           "012", "002", "010", "Catan Lil", "Picun Leufu", "Collon Cura",
+           "009", "002", "010", "011", "012", "013",
            "014", "015", "016"),
   row = c(1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 6, 7),
   col = c(3, 2, 4, 4, 3, 2, 4, 2, 3, 1, 2, 3, 2, 1, 1, 1),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+codigos %>% 
+  filter(id == "NEUQUEN") %>% 
+  left_join(neuquen) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
 
 
 # PBA ####
@@ -283,14 +465,30 @@ pba <- data.frame(
   row = c(1, 1, 1, 2, 2, 2, 2, 3),
   col = c(2, 3, 4, 4, 2, 1, 3, 1),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+#### SECCION ELECTORAL VS  DEPARTAMENTOS. VA A HABER QUE HARDCODEAR ESTO JUNTO A ARGENTINA
+codigos %>% 
+  filter(id == "BUENOS AIRES") %>% 
+  left_join(pba) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+###################
+
+
 
 
 # RIO NEGRO ####
 
 rio_negro <- data.frame(
   name = c("General Roca", "Avellaneda", "El Cuy", "Pichi Mahuida", "Pilcaniyeu", "Conesa",
-           "Nueve de Julio", "Valcheta", "Veinticinco de Mayo", "norquinco", "Bariloche",
+           "9 de Julio", "Valcheta", "25 de Mayo", "Ñorquinco", "Bariloche",
            "San Antonio", "Adolfo Alsina"),
   code = c("012", "011", "013", "010", "008", "002",
            "005", "004", "006", "007", "009",
@@ -298,7 +496,20 @@ rio_negro <- data.frame(
   row = c(1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4),
   col = c(3, 4, 3, 5, 2, 6, 4, 5, 3, 2, 1, 6, 7),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+
+codigos %>% 
+  filter(id == "RIO NEGRO") %>% 
+  left_join(rio_negro) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
 
 
 #  SALTA ####
@@ -306,9 +517,9 @@ rio_negro <- data.frame(
 
 salta <- data.frame(
   name = c("Santa Victoria", "Iruya", "General Jose de San Martin", "Oran", "La Poma",
-           "General Guemes", "Rivadavia", "La Caldera", "Rosario de Lerma", "Los Andes",
+           "General Güemes", "Rivadavia", "La Caldera", "Rosario de Lerma", "Los Andes",
            "Capital", "Anta", "Cerrillos", "Cachi", "Metan", "Chicoana", "Molinos",
-           "San Carlos", "Rosario de la Frontera", "La Vina", "Guachipas", "La Candelaria",
+           "San Carlos", "Rosario de la Frontera", "La Viña", "Guachipas", "La Candelaria",
            "Cafayate"), # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
   code = c("010", "009", "008", "007", "022",
            "003", "006", "002", "021", "023",
@@ -318,7 +529,20 @@ salta <- data.frame(
   row = c(1, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7),
   col = c(5, 6, 7, 6, 2, 5, 7, 4, 3, 2, 5, 6, 4, 3, 5, 4, 2, 3, 6, 4, 5, 5, 4),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+
+codigos %>% 
+  filter(id == "SALTA") %>% 
+  left_join(salta) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
 
 
 # SANTA CRUZ ####
@@ -331,7 +555,19 @@ santa_cruz <- data.frame(
   row = c(1, 1, 2, 2, 3, 3, 4),
   col = c(2, 1, 2, 1, 2, 1, 2),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "SANTA CRUZ") %>% 
+  left_join(santa_cruz) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
 
 # SANTA FE####
 
@@ -349,16 +585,28 @@ santa_fe <- data.frame(
   row = c(2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8),
   col = c(3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 2, 1, 4, 1, 2, 3, 1, 2, 1),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+
+codigos %>% 
+  filter(id == "SANTA FE") %>% 
+  left_join(santa_fe) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
 
 
 # SANTIAGO DEL ESTERO ####
 
 
 santiago_del_estero <- data.frame(
-  name = c("Copo", "Pellegrini", "Alberdi", "Jimenez", "Banda", "Figueroa", "Moreno",
-           "Rio Hondo", "Capital", "Juan F  Ibarra", "Robles", "Sarmiento", "Guasayan",
-           "Avellaneda", "Belgrano", "San Martin", "Silipica", "Choya", "Atamisqui",
+  name = c("Copo", "Pelegrini", "Alberdi", "Jimenez", "Banda", "Figueroa", "Moreno",
+           "Rio Hondo", "Capital", "Juan F. Ibarra", "Robles", "Sarmiento", "Guasayan",
+           "Avellaneda", "General Taboada", "San Martin", "Silipica", "Choya", "Atamisqui",
            "Belgrano", "Loreto", "Salavina", "Aguirre", "Ojo de Agua", "Quebrachos",
            "Mitre", "Rivadavia"), # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
   code = c("008", "018", "004", "012", "006", "010", "016",
@@ -369,14 +617,27 @@ santiago_del_estero <- data.frame(
   row = c(1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8),
   col = c(4, 3, 4, 3, 3, 4, 5, 2, 2, 5, 3, 4, 1, 4, 5, 3, 2, 1, 3, 5, 2, 4, 5, 2, 3, 4, 5),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
 
+
+
+codigos %>% 
+  filter(id == "SANTIAGO DEL ESTERO") %>% 
+  left_join(santiago_del_estero) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
+grid_preview(santiago_del_estero, label = "name")
 
 # SAN JUAN ####
 
 san_juan <- data.frame(
   name = c("Iglesia", "Jachal", "Valle Fertil", "Ullum", "Albardon", "Angaco", "Zonda",
-           "San Martin", "Caucete", "Rivadavia", "Chimbas", "San Lucia", "Pocito",
+           "San Martin", "Caucete", "Rivadavia", "Chimbas", "Santa Lucia", "Pocito",
            "Capital", "9 de Julio", "Calingasta", "Rawson", "25 de Mayo", "Sarmiento"),
   code = c("018", "017", "016", "011", "010", "009", "005", # Codigos utilizados por INDRA en bases de datos electorales
            "008", "015", "004", "003", "002", "012",
@@ -384,21 +645,46 @@ san_juan <- data.frame(
   row = c(2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 8),
   col = c(2, 3, 4, 3, 4, 5, 3, 4, 5, 3, 4, 5, 3, 4, 5, 2, 4, 5, 4),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+codigos %>% 
+  filter(id == "SAN JUAN") %>% 
+  left_join(san_juan) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
+
+
 
 # SAN LUIS ####
 
 san_luis <- data.frame(
   name = c("Ayacucho", "Junin", "Belgrano", "Chacabuco",
-           "San Martin", "Pringles", "Pedernera",
-           "Pueyrredon", "Gobernador Dupuy"),
+           "Libertador General San Martin", "Coronel Pringles", "General Pedernera",
+           "La Capital", "Gobernador Dupuy"),
   code = c("007", "006", "008", "004",  # Codigos utilizados por INDRA en bases de datos electorales
            "005", "002", "003",
            "001", "009"),
   row = c(1, 1, 2, 2, 2, 3, 3, 3, 4),
   col = c(2, 3, 1, 3, 2, 2, 3, 1, 3),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
+
+
+
+codigos %>% 
+  filter(id == "SAN LUIS") %>% 
+  left_join(san_luis) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
+
 
 # TIERRA DEL FUEGO ####
 # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
@@ -408,16 +694,26 @@ tierra_del_fuego <- data.frame(
   row = c(2, 3, 4),
   col = c(1, 1, 2),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
 
+
+
+codigos %>% 
+  filter(id == "TIERRA DEL FUEGO") %>% 
+  left_join(tierra_del_fuego) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
 
 # TUCUMAN ####
 
 tucuman <- data.frame(
-  name = c("Trancas", "Burruyacu", "T del Valle", "Cruz Alta",
-           "Y Buena", "Capital", "T Viejo", "Leales", "Monteros",
+  name = c("Trancas", "Burruyacu", "Tafi del Valle", "Cruz Alta",
+           "Yerba Buena", "Capital", "Tafi Viejo", "Leales", "Monteros",
            "Famailla", "Lules", "Chicligasta", "Rio Chico",
-           "Simoca", "Graneros", "Alberdi", "La Cocha"),
+           "Simoca", "Graneros", "Juan B. Alberdi", "La Cocha"),
   code = c("014", "013", "017", "012", # CODIGO DEPTO DIRECCION NACIONAL ELECTORAL (DINE - INDRA)
            "015", "001", "016", "011", "004",
            "003", "002", "005", "006",
@@ -425,45 +721,19 @@ tucuman <- data.frame(
   row = c(1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6),
   col = c(3, 4, 1, 5, 3, 4, 2, 5, 2, 3, 4, 2, 3, 4, 4, 3, 3),
   stringsAsFactors = FALSE
-)
+) %>% 
+  mutate(name = str_to_upper(name)) %>% 
+  arrange(name) %>% 
+  print()
 
 
 
 
-
-
-### CREO UN UNICO data.frame COMO LIST CON CADA UNO DE LOS DISTRITOS
-data <- list(caba, catamarca, chaco, chubut, cordoba, corrientes,
-             entre_rios, formosa, jujuy, la_pampa, la_rioja, mendoza, misiones,
-             neuquen, pba, rio_negro, salta, santa_cruz, santa_fe, santiago_del_estero,
-             san_juan, san_luis, tierra_del_fuego, tucuman)
-
-
-
-
-### recodifico nombres de departamentos con nombres validos de INDEC 
-
-
-recodificar <- function(data){
-  
-  
-  codigos <- show_arg_codes(nivel = "departamentos",viewer = F) %>%  
-    select(code = coddepto, nomdepto_censo) %>% print()
-  
-  
-  data %>% left_join(codigos) %>% 
-    as_tibble() %>% 
-    mutate(name = str_to_title(nomdepto_censo)) %>% 
-    select(-nomdepto_censo)
-  
-}
-
-data <- map(data, recodificar)
-
-
-
-
-
+codigos %>% 
+  filter(id == "TUCUMAN") %>% 
+  left_join(tucuman) %>% 
+  mutate(check = ifelse(nombre == name, TRUE, FALSE)) %>% 
+  filter(check == F)
 
 
 
@@ -474,26 +744,14 @@ data <- list(argentina, caba, catamarca, chaco, chubut, cordoba, corrientes,
              san_juan, san_luis, tierra_del_fuego, tucuman)
 
 
-
-
-
-
 #Nombres de provincias
-names(data) <- c("ARGENTINA", "CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES",
+names(data) <- c("ARGENTINA","CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES",
                  "ENTRE RIOS", "FORMOSA", "JUJUY", "LA PAMPA", "LA RIOJA", "MENDOZA", "MISIONES",
-                 "NEUQUEN","PBA", "RIO NEGRO", "SALTA", "SANTA CRUZ", "SANTA FE", "SANTIAGO DEL ESTERO",
+                 "NEUQUEN", "PBA", "RIO NEGRO", "SALTA", "SANTA CRUZ", "SANTA FE", "SANTIAGO DEL ESTERO",
                  "SAN JUAN", "SAN LUIS", "TIERRA DEL FUEGO", "TUCUMAN")
 
 
-#Guardo lista de grillas en destino /geo
-write_rds(x = data, path = "geo/grillas_geofacet.rds")
-
-
-
-
 #### DATA FRAME codprov  ~ name_prov
-
-
 provCode <- tibble(name_prov = 
                          c("CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES","ENTRE RIOS","FORMOSA", 
                            "JUJUY", "LA PAMPA", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN","BUENOS AIRES","RIO NEGRO",
@@ -503,10 +761,9 @@ provCode <- tibble(name_prov =
                            '10','11','12','13','14','15','02','16',
                            '17','20','21','22','18','19','24','23')) 
 
-  write_csv(provCode, "geo/provCode.csv")
-
-
-
-
-
-
+write_csv(provCode, "geo/provCode.csv")
+  
+  
+#Guardo lista de grillas en destino /geo
+write_rds(x = data, path = "geo/grillas_geofacet.rds")
+  
