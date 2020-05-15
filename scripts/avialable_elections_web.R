@@ -10,7 +10,8 @@ data <- show_available_elections(viewer = F) %>%
           category == "sen" ~ "Senadores"),
          round = case_when(
           round == "gral" ~ "GENERAL", 
-          round == "paso" ~ "PASO")) %>% 
+          round == "paso" ~ "PASO",
+          round == "balota" ~ "BALOTAJE")) %>% 
   select(Distrito = NOMBRE,
          Año = year, 
          Turno = round, 
@@ -26,6 +27,6 @@ DT::datatable(data, options = list(
   DT::formatStyle( 
     'Turno',
     target = 'cell',
-    backgroundColor = DT::styleEqual(c("PASO","GENERAL"), 
-                                     c("#f1a340","#998ec3")))
+    backgroundColor = DT::styleEqual(c("PASO","GENERAL", "BALOTAJE"), 
+                                     c("#f1a340","#998ec3", "#22ab70")))
 
