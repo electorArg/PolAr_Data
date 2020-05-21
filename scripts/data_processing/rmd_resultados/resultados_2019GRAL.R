@@ -1,32 +1,29 @@
 
-##### RESULTADOS ELECCIONES  2019
-
-##### Consultas desde liberías de R con restulados
-
-
 
 ##### LIBRERIAS ####
 
 library(tidyverse)
+### GENERAL ####
 
 
-#### PASO ####
+library(elecciones.ar.2019)
 
-library(paso2019)
 
-paso2019::categorias %>%
+elecciones.ar.2019::categorias %>%
   as_tibble() %>%
   filter(str_detect(nombre_categoria, "Diputados Nacionales|Senadores Nacionales|Presidente")) %>%
   pull(nombre_categoria)
 
 
-datos_seccion <- paso2019::votos %>% as_tibble() %>%
+
+datos_seccion <- votos %>%
+  as_tibble() %>%
   ungroup() %>%
   left_join(mesas, by = "id_mesa") %>%
   # left_join(establecimientos, by = "id_establecimiento") %>%
   left_join(distritos, by ="id_distrito") %>%
   left_join(secciones, by = "id_seccion") %>%
-  select(13:15)  %>%
+  select(14:16)  %>%
   distinct() %>%
   transmute(codprov = str_sub(codigo_seccion, start = 1, end = 2),
             coddepto = str_sub(codigo_seccion, start = 3, end = 5),
@@ -42,13 +39,14 @@ datos_seccion %>%
   print(n = 24)
 
 
-datos_paso <- paso2019::votos %>% as_tibble() %>%
+datos_grales <- votos %>%
+  as_tibble() %>%
   left_join(mesas, by = "id_mesa") %>%
   # left_join(establecimientos, by = "id_establecimiento") %>%
   left_join(distritos, by ="id_distrito") %>%
   left_join(secciones, by = "id_seccion") %>%
   left_join(listas, by = "id_lista") %>%
-  left_join(agrupaciones, by = "id_agrupacion") %>%
+  left_join(agrupaciones, by = "id_agrupacion") %>% print(n = 50) %>%
   left_join(categorias, by = "id_categoria") %>%
   left_join(meta_agrupaciones, by = "id_meta_agrupacion") %>%
   filter(str_detect(nombre_categoria, "Diputados Nacionales|Senadores Nacionales|Presidente")) %>%
@@ -72,55 +70,55 @@ datos_paso <- paso2019::votos %>% as_tibble() %>%
   print()
 
 
+
 #LISTAS PRESIDENTE
-listas_presi <- datos_paso %>% filter(str_detect(nombre_categoria , "Presi"),
-                                      !str_detect(nombre_meta_agrupacion, "BLANCO")) %>%
+listas_presi_gral <- datos_grales %>%
+  filter(str_detect(nombre_categoria , "Presi"),
+         !str_detect(nombre_meta_agrupacion, "BLANCO")) %>%
   select(parDenominacion = nombre_meta_agrupacion, vot_parCodigo = lista, codprov) %>%
   distinct() %>%
   mutate(vot_parCodigo = as.character(vot_parCodigo)) %>%
   rename(vot_proCodigoProvincia = codprov) %>%
-  write_csv("scripts/rmd_listas/presidente/listas_presi_paso2019.csv")
+  write_csv("scripts/rmd_listas/presidente/listas_presi_gral2019.csv")
 
 
-
-datos_finales_paso <-  datos_paso %>%
-  left_join(datos_seccion, by = c("codprov", "coddepto")) %>%
+datos_finales_gral <-  datos_grales %>%
+  left_join(datos_seccion, by = c("codprov", "coddepto"))  %>%
   select(codprov, prov, coddepto, depto, circuito = id_circuito, mesa = id_mesa,
-          votos, categoria = nombre_categoria, lista) %>%
+         votos, categoria = nombre_categoria, lista)%>%
   mutate(lista = case_when(
-            lista == "00102" ~ "blancos",
-            T  ~ lista))
+    lista == "00110" ~ "blancos",
+    T  ~ lista))
 
 
-paso2019 <- datos_finales_paso %>%
+generales2019 <- datos_finales_gral %>%
   mutate(cat= case_when(
     str_detect(categoria, "Dip") ~ "dip",
     str_detect(categoria, "Sen") ~ "sen",
     str_detect(categoria, "Pres") ~ "presi"
   ),
   electores = 0,
-  nulos = 0) %>%
-  group_by(cat, prov) %>%
-  ungroup() %>%
-  select(-categoria) %>%
-  print()
-
-
-
-#listas %>% as_tibble() %>% filter(str_detect(nombre_lista, "VOTO")) #1443 VOTO EN BLANCO id_agrupacion 102
-
-
+  nulos = 0)
 
 
 #EXPORTO RESULTADOS PRESIDENTE
-paso2019 %>% filter(cat == "presi") %>%
-  select(-prov, -cat) %>%
+generales2019 %>%
+  filter(cat == "presi") %>%
   filter(!is.na(votos)) %>%
+  select(-prov, -cat) %>%
   pivot_wider(id_cols = c(codprov, coddepto, depto, circuito , mesa, electores, nulos),
               names_from = lista,
               values_from = votos) %>%
-  select(codprov, coddepto, depto, circuito, mesa, electores, nulos, blancos, everything()) %>%
-  write_csv("data/00.PRESIDENCIAL/arg_presi_paso2019.csv")
+  select(codprov, coddepto, depto, circuito, mesa,  electores, nulos, blancos, everything()) -> temp_gral
+
+
+
+temp_gral_filtrado  <- temp_gral[c(1:8,8 + which(colSums(temp_gral[-(1:8)]) !=0))]
+
+temp_gral_filtrado %>%
+write_csv("data/00.PRESIDENCIAL/arg_presi_gral2019.csv")
+
+
 
 # FUNCION PARA HACER WIDE LOS DATASETS
 make_wider <- function(data = data){
@@ -131,14 +129,48 @@ make_wider <- function(data = data){
                 names_from = lista,
                 values_from = votos) %>%
     select(codprov, coddepto, depto, circuito, mesa, electores, nulos, blancos, everything()) %>%
-    mutate_if(is.numeric, funs(replace_na(., replace = 0)))
+    mutate_if(is.numeric, funs(replace_na(., replace = 0)))-> temp_gral
 
-}
+
+
+  temp_gral_filtrado  <- temp_gral[c(1:8,8 + which(colSums(temp_gral[-(1:8)]) !=0))]
+
+  temp_gral_filtrado
+
+
+
+
+  }
+
+
+#LISTAS DIPUTADOS
+listas_dip_gral <- datos_grales %>%
+  filter(!is.na(votos)) %>%
+  filter(str_detect(nombre_categoria , "Dip"),
+         !str_detect(nombre_meta_agrupacion, "BLANCO")) %>%
+  select(parDenominacion = nombre_meta_agrupacion, vot_parCodigo = lista, codprov) %>%
+  distinct() %>%
+  mutate(vot_parCodigo = as.character(vot_parCodigo)) %>%
+  rename(vot_proCodigoProvincia = codprov) %>%
+  write_csv("scripts/rmd_listas/diputados/listas_dip_gral2019.csv")
+
+
+#LISTAS SENADORES
+listas_sen <- datos_grales %>%
+  filter(!is.na(votos)) %>%
+  filter(str_detect(nombre_categoria , "Sen"),
+         !str_detect(nombre_meta_agrupacion, "BLANCO")) %>%
+  select(parDenominacion = nombre_meta_agrupacion, vot_parCodigo = lista, codprov) %>%
+  distinct() %>%
+  mutate(vot_parCodigo = as.character(vot_parCodigo)) %>%
+  rename(vot_proCodigoProvincia = codprov) %>%
+  write_csv("scripts/rmd_listas/senadores/listas_sen_gral2019.csv")
+
 
 
 #### LEGISLATIVAS
 
-files_paso2019_dip <- paso2019  %>%
+files_gral2019_dip <- generales2019 %>%
   filter(!is.na(votos)) %>%
   filter(cat == "dip") %>%
   select(-cat) %>%
@@ -148,7 +180,7 @@ files_paso2019_dip <- paso2019  %>%
   nest()
 
 
-files_paso2019_sen <- paso2019  %>%
+files_gral2019_sen <- generales2019 %>%
   filter(!is.na(votos)) %>%
   filter(cat == "sen") %>%
   select(-cat) %>%
@@ -160,60 +192,43 @@ files_paso2019_sen <- paso2019  %>%
 
 
 
-# PROCESO Y GURADO RESULTADOS DIPUTADOS PASO 2019
 
-archivos_dip <- map(files_paso2019_dip$data, make_wider)
+# PROCESO Y GURADO RESULTADOS DIPUTADOS GENERALES 2019
 
-names(archivos_dip) <-  c("chaco", "sfe" ,"caba",
- "mendoza", "chubut" ,"rioja",
- "pba", "catamarca" ,"cordoba",
- "corrientes", "formosa" ,"jujuy",
- "neuquen", "sjuan" ,"sluis",
- "tucuman", "salta" ,"santiago",
- "pampa", "rnegro" ,"scruz",
- "erios", "misiones" ,"tdf")
+archivos_dip_gral <- map(files_gral2019_dip$data, make_wider)
+
+names(archivos_dip_gral) <-  c("chaco", "sfe" ,"caba",
+                               "mendoza", "chubut" ,"corrientes",
+                               "rioja", "pba" ,"catamarca",
+                               "cordoba", "formosa" ,
+                               "jujuy", "neuquen" ,"sjuan",
+                               "sluis", "tucuman" ,"santiago",
+                               "pampa", "rnegro","salta" ,"scruz",
+                               "erios", "misiones","tdf" )
 
 
-archivos_dip %>%
+archivos_dip_gral %>%
   names(.) %>%
-  map(~ write_csv(archivos_dip[[.]], paste0("data/Elecciones_2019/", ., "_dip_paso2019.csv")))
+  map(~ write_csv(archivos_dip_gral[[.]], paste0("data/Elecciones_2019/", ., "_dip_gral2019.csv")))
 
 
-# PROCESO Y GUARDO RESULTADOS PASO SENADORES 2019
+# PROCESO Y GUARDO RESULTADOS GENERALES SENADORES 2019
 
-archivos_sen <- map(files_paso2019_sen$data, make_wider)
+archivos_sen_gral <- map(files_gral2019_sen$data, make_wider)
 
-names(archivos_sen) <-  c("chaco","caba", "neuquen", "salta", "santiago",
-                          "rnegro", "erios" , "tdf" )
+names(archivos_sen_gral) <-  c("chaco", "caba", "neuquen" ,
+                               "santiago", "rnegro", "salta",
+                               "erios",  "tdf" )
 
 
-archivos_sen %>%
+archivos_sen_gral %>%
   names(.) %>%
-  map(~ write_csv(archivos_sen[[.]], paste0("data/Elecciones_2019/", ., "_sen_paso2019.csv")))
+  map(~ write_csv(archivos_sen_gral[[.]], paste0("data/Elecciones_2019/", ., "_sen_gral2019.csv")))
 
 
 
 
-#LISTAS DIPUTADOS
-listas_dip <- datos_paso %>%
-  filter(str_detect(nombre_categoria , "Dip"),
-         !str_detect(nombre_meta_agrupacion, "BLANCO")) %>%
-  select(parDenominacion = nombre_meta_agrupacion, vot_parCodigo = lista, codprov) %>%
-  distinct() %>%
-  mutate(vot_parCodigo = as.character(vot_parCodigo)) %>%
-  rename(vot_proCodigoProvincia = codprov) %>%
-  write_csv("scripts/rmd_listas/diputados/listas_dip_paso2019.csv")
 
-
-#LISTAS SENADORES
-listas_sen <- datos_paso %>%
-  filter(str_detect(nombre_categoria , "Sen"),
-         !str_detect(nombre_meta_agrupacion, "BLANCO")) %>%
-  select(parDenominacion = nombre_meta_agrupacion, vot_parCodigo = lista, codprov) %>%
-  distinct() %>%
-  mutate(vot_parCodigo = as.character(vot_parCodigo)) %>%
-  rename(vot_proCodigoProvincia = codprov) %>%
-  write_csv("scripts/rmd_listas/senadores/listas_sen_paso2019.csv")
 
 
 

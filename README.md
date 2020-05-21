@@ -26,12 +26,14 @@
 
 La fuente original de datos para resultados de elecciones nacionales (2003 - 2017) provienen del **_Atlas Electoral de Andy Tow_**. Se puede acceder a ellas en  las sección de **[descargas de su sitio web](https://www.andytow.com/)**. Para acceder es necesario autenticar la consulta a través de una cuenta de *Twitter*. 
 
-Los datos de las elecciones de 2019 tienen una estructura diferente de las de años anteriores (primera vez que cambió proveedor de escrutinio provisorio desde inicio de nuestra muestra en 2003). Los resultados pueden ser reconstruidos utilizando unos paquetes especificos para cada turno: [paso](https://github.com/pmoracho/paso2019) y [generales](https://github.com/pmoracho/elecciones.ar.2019).
+Los datos de las elecciones de 2019 tienen una estructura diferente de las de años anteriores (primera vez que cambió proveedor de escrutinio provisorio desde el inicio de nuestra muestra en 2003). Los resultados fueron reconstruidos de unos paquetes especificos desarrollados por [@pmoracho](https://github.com/pmoracho) para cada turno: [paso](https://github.com/pmoracho/paso2019) y [generales](https://github.com/pmoracho/elecciones.ar.2019).
 
 
 ---
 
 ##### Para el procesamiento de datos de este repositorio seguimos los siguientes pasos: 
+
+###### INDRA - Andy Tow 
 
 **(1)** Descargamos los archivos para cada una de las elecciones del atlas. 
 

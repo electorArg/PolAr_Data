@@ -3,22 +3,8 @@ title: "Export Listas Elecciones Diputados de Argentinas"
 output: html_notebook
 ---
 
-
-
-
-```{r ruta}
-#### USAR ESTE SCRIPT APUNTANDO AL DIRECTORIO DE LAS BASES SQL DESCARGADAS
-####  ver documentacion de  
-####  here::here() 
-
-# PARA GUARDAR RESULTADOS .csv
-ruta <-"INSERTAR_RUTA"
-
-```
-
 ```{r librerias, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-
 ```
 
 
@@ -34,8 +20,55 @@ NomAmbitos
 
 
 
-* **EXPORTO LISTAS DE CANDIDATOS DIPUTADOS (2007 - 2017)**
+* **EXPORTO LISTAS DE CANDIDATOS DIPUTADOS (2003 - 2017)**
 
+
+
+## 2003
+
+
+
+```{sql Listas03SenGral, connection=Arg03, output.var="listas_dip_gral2003"}
+SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasDNacionales c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = '23'
+```
+
+
+```{r}
+write_csv(listas_dip_gral2007, "../diputados/listas_dip_gral2003.csv")
+
+```
+
+
+
+## 2005 
+
+
+
+```{sql Listas05SenGral, connection=Arg05, output.var="listas_dip_gral2005"}
+SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasDNacionales c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = '23'
+```
+
+
+```{r}
+write_csv(listas_dip_gral2007, "../diputados/listas_dip_gral2007.csv")
+
+```
 
 ## 2007
 
@@ -55,11 +88,9 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_gral2007, paste0(ruta, "/listas_dip_gral2007.csv"))
+write_csv(listas_dip_gral2007, "../diputados/listas_dip_gral2007.csv")
 
 ```
-
-
 
 
 ## 2009
@@ -78,7 +109,7 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_gral2009, paste0(ruta, "/listas_dip_gral2009.csv"))
+write_csv(listas_dip_gral2009, "../diputados/listas_dip_gral2009.csv")
 
 ```
 
@@ -100,7 +131,7 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_gral2011, paste0(ruta, "/listas_dip_gral2011.csv"))
+write_csv(listas_dip_gral2011, "../diputados/listas_dip_gral2011.csv")
 
 ```
 
@@ -121,7 +152,7 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_paso2011, paste0(ruta, "/listas_dip_paso2011.csv"))
+write_csv(listas_dip_paso2011, "../diputados/listas_dip_paso2011.csv")
 
 ```
 
@@ -146,7 +177,7 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_gral2013, paste0(ruta, "/listas_dip_gral2013.csv"))
+write_csv(listas_dip_gral2013, "../diputados/listas_dip_gral2013.csv")
 
 ```
 
@@ -168,7 +199,7 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_paso2013, paste0(ruta, "/listas_dip_paso2013.csv"))
+write_csv(listas_dip_paso2013, "../diputados/listas_dip_paso2013.csv")
 
 ```
 
@@ -192,7 +223,7 @@ NomPartidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_gral2015, paste0(ruta, "/listas_dip_gral2015.csv"))
+write_csv(listas_dip_gral2015, "../diputados/listas_dip_gral2015.csv")
 
 ```
 
@@ -214,7 +245,7 @@ NomPartidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_paso2015, paste0(ruta, "/listas_dip_paso2015.csv"))
+write_csv(listas_dip_paso2015, "../diputados/listas_dip_paso2015.csv")
 
 ```
 
@@ -238,7 +269,7 @@ NomPartidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_gral2017, paste0(ruta, "/listas_dip_gral2017.csv"))
+write_csv(listas_dip_gral2017, "../diputados/listas_dip_gral2017.csv")
 
 ```
 
@@ -260,7 +291,7 @@ NomPartidos p ON c.vot_parCodigo = p.parCodigo
 
 
 ```{r}
-write_csv(listas_dip_paso2017, paste0(ruta, "/listas_dip_paso2017.csv"))
+write_csv(listas_dip_paso2017, "../diputados/listas_dip_paso2017.csv")
 
 ```
 

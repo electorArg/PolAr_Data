@@ -398,7 +398,7 @@ SELECT
 
 ```{r}
 
-write_csv(catamarcagral2007,  paste0(ruta, "/catamarca_dip_gral2007.csv"))
+write_csv(catamarcagral2007, "../../data/3.CATAMARCA/catamarca_dip_gral2007.csv")
 
 ```
 
@@ -534,7 +534,7 @@ SELECT
 
 ```{r}
 
-write_csv(cordobagral2007,  paste0(ruta, "/cordoba_dip_gral2007.csv"))
+write_csv(cordobagral2007, "../../data/4.CORDOBA/cordoba_dip_gral2007.csv")
 
 ```
 
@@ -681,7 +681,7 @@ SELECT
 
 ```{r}
 
-write_csv(corrientesgral2007, paste0(ruta, "/corrientes_dip_gral2007.csv"))
+write_csv(corrientesgral2007, "../../data/5.CORRIENTES/corrientes_dip_gral2007.csv")
 
 ```
 #### CHACO
@@ -768,7 +768,7 @@ SELECT
 
 ```{r}
 
-write_csv(chacogral2007,  paste0(ruta, "/chaco_dip_gral2007.csv"))
+write_csv(chacogral2007, "../../data/6.CHACO/chaco_dip_gral2007.csv")
 
 ```
 #### CHUBUT
@@ -855,7 +855,7 @@ SELECT
 
 ```{r}
 
-write_csv(chubutgral2007,  paste0(ruta, "/chubut_dip_gral2007.csv"))
+write_csv(chubutgral2007, "../../data/7.CHUBUT/chubut_dip_gral2007.csv")
 
 ```
 #### ENTRE RIOS
@@ -954,7 +954,7 @@ SELECT
 
 ```{r}
 
-write_csv(eriosgral2007,  paste0(ruta, "/erios_dip_gral2007.csv"))
+write_csv(eriosgral2007, "../../data/8.ENTRE_RIOS/erios_dip_gral2007.csv")
 
 ```
 #### FORMOSA
@@ -1044,7 +1044,7 @@ SELECT
 
 ```{r}
 
-write_csv(formosagral2007,  paste0(ruta, "/formosa_dip_gral2007.csv"))
+write_csv(formosagral2007, "../../data/9.FORMOSA/formosa_dip_gral2007.csv")
 
 ```
 #### JUJUY
@@ -1143,7 +1143,7 @@ SELECT
 
 ```{r}
 
-write_csv(jujuygral2007,  paste0(ruta, "/jujuy_dip_gral2007.csv"))
+write_csv(jujuygral2007, "../../data/10.JUJUY/jujuy_dip_gral2007.csv")
 
 ```
 #### LA PAMPA
@@ -1236,7 +1236,7 @@ SELECT
 
 ```{r}
 
-write_csv(pampagral2007,  paste0(ruta, "/pampa_dip_gral2007.csv"))
+write_csv(pampagral2007, "../../data/11.LA_PAMPA/pampa_dip_gral2007.csv")
 
 ```
 #### LA RIOJA
@@ -1317,7 +1317,7 @@ SELECT
 
 ```{r}
 
-write_csv(riojagral2007,  paste0(ruta, "/rioja_dip_gral2007.csv"))
+write_csv(riojagral2007, "../../data/12.LA_RIOJA/rioja_dip_gral2007.csv")
 
 ```
 #### MENDOZA
@@ -1458,7 +1458,7 @@ SELECT
 
 ```{r}
 
-write_csv(mendozagral2007,  paste0(ruta, "/mendoza_dip_gral2007.csv"))
+write_csv(mendozagral2007, "../../data/13.MENDOZA/mendoza_dip_gral2007.csv")
 
 ```
 #### MISIONES
@@ -1551,7 +1551,7 @@ SELECT
 
 ```{r}
 
-write_csv(misionesgral2007, paste0(ruta, "/misiones_dip_gral2007.csv"))
+write_csv(misionesgral2007, "../../data/14.MISIONES/misiones_dip_gral2007.csv")
 
 ```
 #### NEUQUEN
@@ -1647,7 +1647,7 @@ SELECT
 
 ```{r}
 
-write_csv(neuquengral2007,  paste0(ruta, "neuquen_dip_gral2007.csv"))
+write_csv(neuquengral2007, "../../data/15.NEUQUEN/neuquen_dip_gral2007.csv")
 
 ```
 #### RIO NEGRO
@@ -1734,7 +1734,7 @@ SELECT
 
 ```{r}
 
-write_csv(rnegrogral2007,  paste0(ruta, "/rnegro_dip_gral2007.csv"))
+write_csv(rnegrogral2007, "../../data/16.RIO_NEGRO/rnegro_dip_gral2007.csv")
 
 ```
 #### SALTA
@@ -1842,7 +1842,7 @@ SELECT
 
 ```{r}
 
-write_csv(saltagral2007,  paste0(ruta, "/salta_dip_gral2007.csv"))
+write_csv(saltagral2007, "../../data/17.SALTA/salta_dip_gral2007.csv")
 
 ```
 #### SAN JUAN
@@ -1944,7 +1944,7 @@ SELECT
 
 ```{r}
 
-write_csv(sjuangral2007,  paste0(ruta, "/sjuan_dip_gral2007.csv"))
+write_csv(sjuangral2007, "../../data/18.SAN_JUAN/sjuan_dip_gral2007.csv")
 
 ```
 #### SAN LUIS
@@ -2028,7 +2028,7 @@ SELECT
 
 ```{r}
 
-write_csv(sluisgral2007,  paste0(ruta, "/sluis_dip_gral2007.csv"))
+write_csv(sluisgral2007, "../../data/19.SAN_LUIS/sluis_dip_gral2007.csv")
 
 ```
 #### SANTA CRUZ
@@ -2103,7 +2103,7 @@ SELECT
 
 ```{r}
 
-write_csv(scruzgral2007, paste0(ruta, "/scruz_dip_gral2007.csv"))
+write_csv(scruzgral2007, "../../data/20.SANTA_CRUZ/scruz_dip_gral2007.csv")
 
 ```
 #### SANTA FE
@@ -2229,7 +2229,7 @@ SELECT
 
 ```{r}
 
-write_csv(sfegral2007,  paste0(ruta, "/sfe_dip_gral2007.csv"))
+write_csv(sfegral2007, "../../data/21.SANTA_FE/sfe_dip_gral2007.csv")
 
 ```
 #### SANTIAGO DEL ESTERO
@@ -2346,7 +2346,7 @@ SELECT
 
 ```{r}
 
-write_csv(sdegral2007,  paste0(ruta, "/santiago_dip_gral2007.csv"))
+write_csv(sdegral2007, "../../data/22.SANTIAGO_DEL_ESTERO/santiago_dip_gral2007.csv")
 
 ```
 #### TUCUMAN
@@ -2451,7 +2451,7 @@ SELECT
 
 ```{r}
 
-write_csv(tucumangral2007,  paste0(ruta, "/tucuman_dip_gral2007.csv"))
+write_csv(tucumangral2007, "../../data/23.TUCUMAN/tucuman_dip_gral2007.csv")
 
 ```
 #### TIERRA DEL FUEGO
@@ -2557,7 +2557,7 @@ SELECT
 
 ```{r}
 
-write_csv(tdfgral2007,  paste0(ruta, "/tdf_dip_gral2007.csv"))
+write_csv(tdfgral2007, "../../data/24.TIERRA_DEL_FUEGO/tdf_dip_gral2007.csv")
 
 ```
 
@@ -2711,7 +2711,7 @@ SELECT
 
 ```{r}
 
-write_csv(cabagral2009,  paste0(ruta, "/caba_dip_gral2009.csv"))
+write_csv(cabagral2009, "../../data/1.CABA/caba_dip_gral2009.csv")
 
 ```
 
@@ -2837,7 +2837,7 @@ SELECT
 
 ```{r}
 
-write_csv(pbagral2009,  paste0(ruta, "/pba_dip_gral2009.csv"))
+write_csv(pbagral2009, "../../data/../../data/data/02.PBA/pba_dip_gral2009.csv")
 
 ```
 
@@ -2921,7 +2921,7 @@ SELECT
 
 ```{r}
 
-write_csv(catamarcagral2009,  paste0(ruta, "/catamarca_dip_gral2009.csv"))
+write_csv(catamarcagral2009, "../../data/3.CATAMARCA/catamarca_dip_gral2009.csv")
 
 ```
 
@@ -3057,7 +3057,7 @@ SELECT
 
 ```{r}
 
-write_csv(cordobagral2009,  paste0(ruta, "/cordoba_dip_gral2009.csv"))
+write_csv(cordobagral2009, "../../data/4.CORDOBA/cordoba_dip_gral2009.csv")
 
 ```
 
@@ -3207,7 +3207,7 @@ SELECT
 
 ```{r}
 
-write_csv(corrientesgral2009,  paste0(ruta, "/corrientes_dip_gral2009.csv"))
+write_csv(corrientesgral2009, "../../data/05.CORRIENTES/corrientes_dip_gral2009.csv")
 
 ```
 #### CHACO
@@ -3291,7 +3291,7 @@ SELECT
 
 ```{r}
 
-write_csv(chacogral2009, paste0(ruta, "/chaco_dip_gral2009.csv"))
+write_csv(chacogral2009, "../../data/06.CHACO/chaco_dip_gral2009.csv")
 
 ```
 #### CHUBUT
@@ -3375,7 +3375,7 @@ SELECT
 
 ```{r}
 
-write_csv(chubutgral2009,  paste0(ruta, "/chubut_dip_gral2009.csv"))
+write_csv(chubutgral2009, "../../data/07.CHUBUT/chubut_dip_gral2009.csv")
 
 ```
 #### ENTRE RIOS
@@ -3468,7 +3468,7 @@ SELECT
 
 ```{r}
 
-write_csv(eriosgral2009,  paste0(ruta, "/erios_dip_gral2009.csv"))
+write_csv(eriosgral2009, "../../data/08.ENTRE_RIOS/erios_dip_gral2009.csv")
 
 ```
 #### FORMOSA
@@ -3537,7 +3537,7 @@ SELECT
 
 ```{r}
 
-write_csv(formosagral2009,  paste0(ruta, "/formosa_dip_gral2009.csv"))
+write_csv(formosagral2009, "../../data/09.FORMOSA/formosa_dip_gral2009.csv")
 
 ```
 #### JUJUY
@@ -3624,7 +3624,7 @@ SELECT
 
 ```{r}
 
-write_csv(jujuygral2009,  paste0(ruta, "Y/jujuy_dip_gral2009.csv"))
+write_csv(jujuygral2009, "../../data/10.JUJUY/jujuy_dip_gral2009.csv")
 
 ```
 #### LA PAMPA
@@ -3708,7 +3708,7 @@ SELECT
 
 ```{r}
 
-write_csv(pampagral2009,  paste0(ruta, "/pampa_dip_gral2009.csv"))
+write_csv(pampagral2009, "../../data/11.LA_PAMPA/pampa_dip_gral2009.csv")
 
 ```
 #### LA RIOJA
@@ -3792,7 +3792,7 @@ SELECT
 
 ```{r}
 
-write_csv(riojagral2009, paste0(ruta, "/rioja_dip_gral2009.csv"))
+write_csv(riojagral2009, "../../data/12.LA_RIOJA/rioja_dip_gral2009.csv")
 
 ```
 #### MENDOZA
@@ -3906,7 +3906,7 @@ SELECT
 
 ```{r}
 
-write_csv(mendozagral2009,  paste0(ruta, "/mendoza_dip_gral2009.csv"))
+write_csv(mendozagral2009, "../../data/13.MENDOZA/mendoza_dip_gral2009.csv")
 
 ```
 #### MISIONES
@@ -3996,7 +3996,7 @@ SELECT
 
 ```{r}
 
-write_csv(misionesgral2009,  paste0(ruta, "/misiones_dip_gral2009.csv"))
+write_csv(misionesgral2009, "../../data/14.MISIONES/misiones_dip_gral2009.csv")
 
 ```
 #### NEUQUEN
@@ -4089,7 +4089,7 @@ SELECT
 
 ```{r}
 
-write_csv(neuquengral2009,  paste0(ruta, "/neuquen_dip_gral2009.csv"))
+write_csv(neuquengral2009, "../../data/15.NEUQUEN/neuquen_dip_gral2009.csv")
 
 ```
 #### RIO NEGRO
@@ -4173,7 +4173,7 @@ SELECT
 
 ```{r}
 
-write_csv(rnegrogral2009,  paste0(ruta, "/rnegro_dip_gral2009.csv"))
+write_csv(rnegrogral2009, "../../data/16.RIO_NEGRO/rnegro_dip_gral2009.csv")
 
 ```
 #### SALTA
@@ -4275,7 +4275,7 @@ SELECT
 
 ```{r}
 
-write_csv(saltagral2009, paste0(ruta, "/salta_dip_gral2009.csv"))
+write_csv(saltagral2009, "../../data/17.SALTA/salta_dip_gral2009.csv")
 
 ```
 #### SAN JUAN
@@ -4359,7 +4359,7 @@ SELECT
 
 ```{r}
 
-write_csv(sjuangral2009,  paste0(ruta, "/sjuan_dip_gral2009.csv"))
+write_csv(sjuangral2009, "../../data/18.SAN_JUAN/sjuan_dip_gral2009.csv")
 
 ```
 #### SAN LUIS
@@ -4443,7 +4443,7 @@ SELECT
 
 ```{r}
 
-write_csv(sluisgral2009,  paste0(ruta, "/sluis_dip_gral2009.csv"))
+write_csv(sluisgral2009, "../../data/19.SAN_LUIS/sluis_dip_gral2009.csv")
 
 ```
 #### SANTA CRUZ
@@ -4521,7 +4521,7 @@ SELECT
 
 ```{r}
 
-write_csv(scruzgral2009,  paste0(ruta, "/scruz_dip_gral2009.csv"))
+write_csv(scruzgral2009, "../../data/20.SANTA_CRUZ/scruz_dip_gral2009.csv")
 
 ```
 #### SANTA FE
@@ -4626,7 +4626,7 @@ SELECT
 
 ```{r}
 
-write_csv(sfegral2009,  paste0(ruta, "/sfe_dip_gral2009.csv"))
+write_csv(sfegral2009, "../../data/21.SANTA_FE/sfe_dip_gral2009.csv")
 
 ```
 #### SANTIAGO DEL ESTERO
@@ -4719,7 +4719,7 @@ SELECT
 
 ```{r}
 
-write_csv(sdegral2009, paste0(ruta, "/santiago_dip_gral2009.csv"))
+write_csv(sdegral2009, "../../data/22.SANTIAGO_DEL_ESTERO/santiago_dip_gral2009.csv")
 
 ```
 #### TUCUMAN
@@ -4821,7 +4821,7 @@ SELECT
 
 ```{r}
 
-write_csv(tucumangral2009,  paste0(ruta, "tucuman_dip_gral2009.csv"))
+write_csv(tucumangral2009, "../../data/23.TUCUMAN/tucuman_dip_gral2009.csv")
 
 ```
 #### TIERRA DEL FUEGO
@@ -4921,7 +4921,7 @@ SELECT
 
 ```{r}
 
-write_csv(tdfgral2009,  paste0(ruta, "/tdf_dip_gral2009.csv"))
+write_csv(tdfgral2009, "../../data/24.TIERRA_DEL_FUEGO/tdf_dip_gral2009.csv")
 
 ```
 
@@ -5039,7 +5039,7 @@ SELECT
 
 ```{r}
 
-write_csv(caba_dip_paso2011,  paste0(ruta, "/caba_dip_paso2011.csv"))
+write_csv(caba_dip_paso2011, "../../data/01.CABA/caba_dip_paso2011.csv")
 
 ```
 
@@ -5142,7 +5142,7 @@ SELECT
 
 ```{r}
 
-write_csv(pba_dip_paso2011, paste0(ruta, "/pba_dip_paso2011.csv"))
+write_csv(pba_dip_paso2011, "../../data/02.PBA/pba_dip_paso2011.csv")
 
 ```
 
@@ -5230,7 +5230,7 @@ SELECT
 
 ```{r}
 
-write_csv(catamarca_dip_paso2011,  paste0(ruta, "/catamarca_dip_paso2011.csv"))
+write_csv(catamarca_dip_paso2011, "../../data/03.CATAMARCA/catamarca_dip_paso2011.csv")
 
 ```
 
@@ -5327,7 +5327,7 @@ SELECT
 
 ```{r}
 
-write_csv(cordoba_dip_paso2011,  paste0(ruta, "/cordoba_dip_paso2011.csv"))
+write_csv(cordoba_dip_paso2011, "../../data/04.CORDOBA/cordoba_dip_paso2011.csv")
 
 ```
 
@@ -5409,7 +5409,7 @@ SELECT
 
 ```{r}
 
-write_csv(Corrientes_dip_paso2011,  paste0(ruta, "/corrientes_dip_paso2011.csv"))
+write_csv(Corrientes_dip_paso2011, "../../data/05.CORRIENTES/corrientes_dip_paso2011.csv")
 
 ```
 
@@ -5498,7 +5498,7 @@ SELECT
 
 ```{r}
 
-write_csv(chaco_dip_paso2011,  paste0(ruta, "/chaco_dip_paso2011.csv"))
+write_csv(chaco_dip_paso2011, "../../data/06.CHACO/chaco_dip_paso2011.csv")
 
 ```
 
@@ -5583,7 +5583,7 @@ SELECT
 
 ```{r}
 
-write_csv(chubut_dip_paso2011,  paste0(ruta, "/chubut_dip_paso2011.csv"))
+write_csv(chubut_dip_paso2011, "../../data/07.CHUBUT/chubut_dip_paso2011.csv")
 
 ```
 
@@ -5671,7 +5671,7 @@ SELECT
 
 ```{r}
 
-write_csv(erios_dip_paso2011, paste0(ruta, "/erios_dip_paso2011.csv"))
+write_csv(erios_dip_paso2011, "../../data/08.ENTRE_RIOS/erios_dip_paso2011.csv")
 
 ```
 
@@ -5756,7 +5756,7 @@ SELECT
 
 ```{r}
 
-write_csv(formosa_dip_paso2011,  paste0(ruta, "/formosa_dip_paso2011.csv"))
+write_csv(formosa_dip_paso2011, "../../data/09.FORMOSA/formosa_dip_paso2011.csv")
 
 ```
 
@@ -5844,7 +5844,7 @@ SELECT
 
 ```{r}
 
-write_csv(jujuy_dip_paso2011,  paste0(ruta, "/jujuy_dip_paso2011.csv"))
+write_csv(jujuy_dip_paso2011, "../../data/10.JUJUY/jujuy_dip_paso2011.csv")
 
 ```
 
@@ -5929,7 +5929,7 @@ SELECT
 
 ```{r}
 
-write_csv(pampa_dip_paso2011,  paste0(ruta, "/pampa_dip_paso2011.csv"))
+write_csv(pampa_dip_paso2011, "../../data/11.LA_PAMPA/pampa_dip_paso2011.csv")
 
 ```
 
@@ -6021,7 +6021,7 @@ SELECT
 
 ```{r}
 
-write_csv(rioja_dip_paso2011,  paste0(ruta, "/rioja_dip_paso2011.csv"))
+write_csv(rioja_dip_paso2011, "../../data/12.LA_RIOJA/rioja_dip_paso2011.csv")
 
 ```
 
@@ -6112,7 +6112,7 @@ SELECT
 
 ```{r}
 
-write_csv(mendoza_dip_paso2011, paste0(ruta, "/mendoza_dip_paso2011.csv"))
+write_csv(mendoza_dip_paso2011, "../../data/13.MENDOZA/mendoza_dip_paso2011.csv")
 
 ```
 
@@ -6197,7 +6197,7 @@ SELECT
 
 ```{r}
 
-write_csv(misiones_dip_paso2011,  paste0(ruta, "/misiones_dip_paso2011.csv"))
+write_csv(misiones_dip_paso2011, "../../data/14.MISIONES/misiones_dip_paso2011.csv")
 
 ```
 
@@ -6285,7 +6285,7 @@ SELECT
 
 ```{r}
 
-write_csv(neuquen_dip_paso2011, paste0(ruta, "/neuquen_dip_paso2011.csv"))
+write_csv(neuquen_dip_paso2011, "../../data/15.NEUQUEN/neuquen_dip_paso2011.csv")
 
 ```
 
@@ -6368,7 +6368,7 @@ SELECT
 
 ```{r}
 
-write_csv(rnegro_dip_paso2011,  paste0(ruta, "/rnegro_dip_paso2011.csv"))
+write_csv(rnegro_dip_paso2011, "../../data/16.RIO_NEGRO/rnegro_dip_paso2011.csv")
 
 ```
 
@@ -6456,7 +6456,7 @@ SELECT
 
 ```{r}
 
-write_csv(salta_dip_paso2011,  paste0(ruta, "/salta_dip_paso2011.csv"))
+write_csv(salta_dip_paso2011, "../../data/17.SALTA/salta_dip_paso2011.csv")
 
 ```
 
@@ -6541,7 +6541,7 @@ SELECT
 
 ```{r}
 
-write_csv(sjuan_dip_paso2011,  paste0(ruta, "/sjuan_dip_paso2011.csv"))
+write_csv(sjuan_dip_paso2011, "../../data/18.SAN_JUAN/sjuan_dip_paso2011.csv")
 
 ```
 
@@ -6623,7 +6623,7 @@ SELECT
 
 ```{r}
 
-write_csv(sluis_dip_paso2011,  paste0(ruta, "/sluis_dip_paso2011.csv"))
+write_csv(sluis_dip_paso2011, "../../data/19.SAN_LUIS/sluis_dip_paso2011.csv")
 
 ```
 
@@ -6704,7 +6704,7 @@ SELECT
 
 ```{r}
 
-write_csv(scruz_dip_paso2011, paste0(ruta, "/scruz_dip_paso2011.csv"))
+write_csv(scruz_dip_paso2011, "../../data/20.SANTA_CRUZ/scruz_dip_paso2011.csv")
 
 ```
 

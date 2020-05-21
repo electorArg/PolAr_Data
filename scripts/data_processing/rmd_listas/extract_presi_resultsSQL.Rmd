@@ -32,7 +32,31 @@ Deptos_Provincias %>%
 
 
 
-* **EXPORTO LISTAS DE CANDIDATOS PRESIDENCIALES (2007 - 2015)**
+* **EXPORTO LISTAS DE CANDIDATOS PRESIDENCIALES (2003 - 2015)**
+
+
+# 2003
+
+```{sql Listas03Presi, connection=Arg03, output.var="listas_presi_gral2003"}
+SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasPresidente c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = '23'
+```
+
+
+```{r}
+write_csv(listas_presi_gral2003, "../presidente/listas_presi_gral2003.csv")
+
+```
+
+
+
 
 # 2007
 

@@ -38,7 +38,32 @@ grupo3 <- c("01",  "06", "08", "15", "16", "17", "22", "24")
 * **EXPORTO LISTAS DE CANDIDATOS SENADORES (2007 - 2015) POR GURPO DE PROVINCIAS**
 
 
-# GRUPO 1 (2009 y 2015)
+# GRUPO 1 (2003, 2009 y 2015)
+
+
+## 2003 
+
+NO HAY DATA EN LA TABLA VotosCandidaturasSNacionales
+
+```{sql Listas03Sen, connection=Arg03, output.var="listas_sen_gral2003"}
+SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasSNacionales c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = '23'
+```
+
+
+```{r}
+write_csv(listas_sen_gral2009, "../senadores/listas_sen_gral2009.csv")
+
+```
+
+
 
 ## 2009
 
@@ -106,7 +131,32 @@ write_csv(listas_sen_paso2015, "../senadores/listas_sen_paso2015.csv")
 
 
 
-# GRUPO 2 (2011 y 2017)
+# GRUPO 2 (2005, 2011 y 2017)
+
+
+## 2005
+
+### GRAL
+
+```{sql Listas05SenGral, connection=Arg05, output.var="listas_sen_gral2005"}
+SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasSNacionales c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = '23'
+```
+
+
+```{r}
+write_csv(listas_sen_gral2005, "../senadores/listas_sen_gral2005.csv")
+
+```
+
+
 
 ## 2011
 

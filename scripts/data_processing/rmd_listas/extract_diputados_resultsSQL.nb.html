@@ -1751,19 +1751,6 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyMjIyBVU0FSIEVTVEUgU0NSSVBUIEFQVU5UQU5ETyBBTCBESVJFQ1RPUklPIERFIExBUyBCQVNFUyBTUUwgREVTQ0FSR0FEQVNcbiMjIyMgIHZlciBkb2N1bWVudGFjaW9uIGRlICBcbiMjIyMgIGhlcmU6OmhlcmUoKSBcblxuIyBQQVJBIEdVQVJEQVIgUkVTVUxUQURPUyAuY3N2XG5ydXRhIDwtXCJJTlNFUlRBUl9SVVRBXCJcblxuYGBgIn0= -->
-<pre class="r"><code>#### USAR ESTE SCRIPT APUNTANDO AL DIRECTORIO DE LAS BASES SQL DESCARGADAS
-####  ver documentacion de  
-####  here::here() 
-
-# PARA GUARDAR RESULTADOS .csv
-ruta &lt;-&quot;INSERTAR_RUTA&quot;
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -1779,9 +1766,61 @@ NomAmbitos</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <ul>
-<li><strong>EXPORTO LISTAS DE CANDIDATOS DIPUTADOS (2007 - 2017)</strong></li>
+<li><strong>EXPORTO LISTAS DE CANDIDATOS DIPUTADOS (2003 - 2017)</strong></li>
 </ul>
 <div id="section" class="section level2">
+<h2>2003</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
+<pre class="sql"><code>SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasDNacionales c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = &#39;23&#39;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsIFwiLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMDMuY3N2XCIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>write_csv(listas_dip_gral2007, &quot;../diputados/listas_dip_gral2003.csv&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-1" class="section level2">
+<h2>2005</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
+<pre class="sql"><code>SELECT DISTINCT
+vot_parCodigo,
+vot_proCodigoProvincia, 
+parDenominacion
+FROM
+VotosCandidaturaMesasDNacionales c INNER JOIN
+Partidos p ON c.vot_parCodigo = p.parCodigo
+--WHERE
+--vot_proCodigoProvincia = &#39;23&#39;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsIFwiLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMDcuY3N2XCIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>write_csv(listas_dip_gral2007, &quot;../diputados/listas_dip_gral2007.csv&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-2" class="section level2">
 <h2>2007</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -1800,19 +1839,34 @@ Partidos p ON c.vot_parCodigo = p.parCodigo
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX2dyYWwyMDA3LmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_gral2007, paste0(ruta, &quot;/listas_dip_gral2007.csv&quot;))
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMDcuY3N2XFwpXG5cbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+write_csv(listas_dip_gral2007, \../diputados/listas_dip_gral2007.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="section-1" class="section level2">
-<h2>2009</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+## 2009
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5Wb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU5cblBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ29cbi0tV0hFUkVcbi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMydcbmBgYFxuYGBgIn0= --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1821,26 +1875,54 @@ VotosCandidaturaMesasDNacionales c INNER JOIN
 Partidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDksIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX2dyYWwyMDA5LmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_gral2009, paste0(ruta, &quot;/listas_dip_gral2009.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDksIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMDkuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_gral2009, \../diputados/listas_dip_gral2009.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="section-2" class="section level2">
-<h2>2011</h2>
-<div id="gral" class="section level3">
-<h3>GRAL</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+## 2011
+
+### GRAL
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5Wb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU5cblBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ29cbi0tV0hFUkVcbi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMydcbmBgYFxuYGBgIn0= --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1849,24 +1931,53 @@ VotosCandidaturaMesasDNacionales c INNER JOIN
 Partidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTEsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX2dyYWwyMDExLmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_gral2011, paste0(ruta, &quot;/listas_dip_gral2011.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTEsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMTEuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_gral2011, \../diputados/listas_dip_gral2011.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="paso" class="section level3">
-<h3>PASO</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+### PASO
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5Wb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU5cblBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ29cbi0tV0hFUkVcbi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMydcbmBgYFxuYGBgIn0= --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1875,27 +1986,57 @@ VotosCandidaturaMesasDNacionales c INNER JOIN
 Partidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTEsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX3Bhc28yMDExLmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_paso2011, paste0(ruta, &quot;/listas_dip_paso2011.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTEsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfcGFzbzIwMTEuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_paso2011, \../diputados/listas_dip_paso2011.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="section-3" class="section level2">
-<h2>2013</h2>
-<div id="gral-1" class="section level3">
-<h3>GRAL</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+
+## 2013
+
+### GRAL
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5Wb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU5cblBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ29cbi0tV0hFUkVcbi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMydcbmBgYFxuYGBgIn0= --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1904,24 +2045,54 @@ VotosCandidaturaMesasDNacionales c INNER JOIN
 Partidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTMsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX2dyYWwyMDEzLmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_gral2013, paste0(ruta, &quot;/listas_dip_gral2013.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTMsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMTMuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_gral2013, \../diputados/listas_dip_gral2013.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="paso-1" class="section level3">
-<h3>PASO</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGAifQ== -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+### PASO
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5Wb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU5cblBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ29cbi0tV0hFUkVcbi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMydcbmBgYFxuYGBgIn0= --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1930,27 +2101,56 @@ VotosCandidaturaMesasDNacionales c INNER JOIN
 Partidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTMsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX3Bhc28yMDEzLmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_paso2013, paste0(ruta, &quot;/listas_dip_paso2013.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTMsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfcGFzbzIwMTMuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_paso2013, \../diputados/listas_dip_paso2013.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="section-4" class="section level2">
-<h2>2015</h2>
-<div id="gral-2" class="section level3">
-<h3>GRAL</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTlxuTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnb1xuLS1XSEVSRVxuLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJ1xuYGBgIn0= -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+## 2015 
+
+### GRAL
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5NZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5Ob21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGBcbmBgYCJ9 --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1959,24 +2159,54 @@ MesasCandidaturaDNacionales c INNER JOIN
 NomPartidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTUsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX2dyYWwyMDE1LmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_gral2015, paste0(ruta, &quot;/listas_dip_gral2015.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTUsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMTUuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_gral2015, \../diputados/listas_dip_gral2015.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="paso-2" class="section level3">
-<h3>PASO</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTlxuTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnb1xuLS1XSEVSRVxuLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJ1xuYGBgIn0= -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+### PASO
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5NZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5Ob21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGBcbmBgYCJ9 --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -1985,27 +2215,56 @@ MesasCandidaturaDNacionales c INNER JOIN
 NomPartidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTUsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX3Bhc28yMDE1LmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_paso2015, paste0(ruta, &quot;/listas_dip_paso2015.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTUsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfcGFzbzIwMTUuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_paso2015, \../diputados/listas_dip_paso2015.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="section-5" class="section level2">
-<h2>2017</h2>
-<div id="gral-3" class="section level3">
-<h3>GRAL</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTlxuTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnb1xuLS1XSEVSRVxuLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJ1xuYGBgIn0= -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+## 2017
+
+### GRAL
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5NZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5Ob21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGBcbmBgYCJ9 --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -2014,24 +2273,54 @@ MesasCandidaturaDNacionales c INNER JOIN
 NomPartidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTcsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX2dyYWwyMDE3LmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_gral2017, paste0(ruta, &quot;/listas_dip_gral2017.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTcsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMTcuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_gral2017, \../diputados/listas_dip_gral2017.csv\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="paso-3" class="section level3">
-<h3>PASO</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5TRUxFQ1QgRElTVElOQ1RcbnZvdF9wYXJDb2RpZ28sXG52b3RfcHJvQ29kaWdvUHJvdmluY2lhLCBcbnBhckRlbm9taW5hY2lvblxuRlJPTVxuTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTlxuTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnb1xuLS1XSEVSRVxuLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJ1xuYGBgIn0= -->
-<pre class="sql"><code>SELECT DISTINCT
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+### PASO
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgc3FsXG5gYGBzcWxcblNFTEVDVCBESVNUSU5DVFxudm90X3BhckNvZGlnbyxcbnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIFxucGFyRGVub21pbmFjaW9uXG5GUk9NXG5NZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lOXG5Ob21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvXG4tLVdIRVJFXG4tLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnXG5gYGBcbmBgYCJ9 --&gt;
+
+```sql
+```sql
+SELECT DISTINCT
 vot_parCodigo,
 vot_proCodigoProvincia, 
 parDenominacion
@@ -2040,22 +2329,37 @@ MesasCandidaturaDNacionales c INNER JOIN
 NomPartidos p ON c.vot_parCodigo = p.parCodigo
 --WHERE
 --vot_proCodigoProvincia = &#39;23&#39;</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTcsIHBhc3RlMChydXRhLCBcIi9saXN0YXNfZGlwX3Bhc28yMDE3LmNzdlwiKSlcblxuYGBgIn0= -->
-<pre class="r"><code>write_csv(listas_dip_paso2017, paste0(ruta, &quot;/listas_dip_paso2017.csv&quot;))
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTcsIFxcLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfcGFzbzIwMTcuY3N2XFwpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+write_csv(listas_dip_paso2017, \../diputados/listas_dip_paso2017.csv\)
 </code></pre>
+<p>```</p>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
-</div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkV4cG9ydCBMaXN0YXMgRWxlY2Npb25lcyBEaXB1dGFkb3MgZGUgQXJnZW50aW5hcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCg0KDQoNCmBgYHtyIHJ1dGF9DQojIyMjIFVTQVIgRVNURSBTQ1JJUFQgQVBVTlRBTkRPIEFMIERJUkVDVE9SSU8gREUgTEFTIEJBU0VTIFNRTCBERVNDQVJHQURBUw0KIyMjIyAgdmVyIGRvY3VtZW50YWNpb24gZGUgIA0KIyMjIyAgaGVyZTo6aGVyZSgpIA0KDQojIFBBUkEgR1VBUkRBUiBSRVNVTFRBRE9TIC5jc3YNCnJ1dGEgPC0iSU5TRVJUQVJfUlVUQSINCg0KYGBgDQoNCmBgYHtyIGxpYnJlcmlhcywgZWNobz1GQUxTRSwgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KDQpgYGANCg0KDQoNCmBgYHtzcWwgRGVwdG9zX1Byb3ZpbmNpYXMsIGNvbm5lY3Rpb249QXJnMTVQLG91dHB1dC52YXIgPSAiRGVwdG9zX1Byb3ZpbmNpYXMifQ0KU0VMRUNUIERJU1RJTkNUDQpkZXBDb2RpZ29EZXBhcnRhbWVudG8sDQpkZXBDb2RpZ29Qcm92aW5jaWEsDQpkZXBOb21icmUNCkZST00NCk5vbUFtYml0b3MNCmBgYA0KDQoNCg0KKiAqKkVYUE9SVE8gTElTVEFTIERFIENBTkRJREFUT1MgRElQVVRBRE9TICgyMDA3IC0gMjAxNykqKg0KDQoNCiMjIDIwMDcNCg0KDQoNCmBgYHtzcWwgTGlzdGFzMDdTZW5HcmFsLCBjb25uZWN0aW9uPUFyZzA3LCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX2dyYWwyMDA3In0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpWb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NClBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsIHBhc3RlMChydXRhLCAiL2xpc3Rhc19kaXBfZ3JhbDIwMDcuY3N2IikpDQoNCmBgYA0KDQoNCg0KDQojIyAyMDA5DQoNCmBgYHtzcWwgTGlzdGFzMDlTZW4sIGNvbm5lY3Rpb249QXJnMDksIG91dHB1dC52YXI9Imxpc3Rhc19kaXBfZ3JhbDIwMDkifQ0KU0VMRUNUIERJU1RJTkNUDQp2b3RfcGFyQ29kaWdvLA0Kdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSwgDQpwYXJEZW5vbWluYWNpb24NCkZST00NClZvdG9zQ2FuZGlkYXR1cmFNZXNhc0ROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9ncmFsMjAwOSwgcGFzdGUwKHJ1dGEsICIvbGlzdGFzX2RpcF9ncmFsMjAwOS5jc3YiKSkNCg0KYGBgDQoNCiMjIDIwMTENCg0KIyMjIEdSQUwNCg0KYGBge3NxbCBMaXN0YXMxMVNlbkdyYWwsIGNvbm5lY3Rpb249QXJnMTFHLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX2dyYWwyMDExIn0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpWb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NClBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTEsIHBhc3RlMChydXRhLCAiL2xpc3Rhc19kaXBfZ3JhbDIwMTEuY3N2IikpDQoNCmBgYA0KDQoNCiMjIyBQQVNPDQoNCmBgYHtzcWwgTGlzdGFzMTFTZW5QQVNPLCBjb25uZWN0aW9uPUFyZzExUCwgb3V0cHV0LnZhcj0ibGlzdGFzX2RpcF9wYXNvMjAxMSJ9DQpTRUxFQ1QgRElTVElOQ1QNCnZvdF9wYXJDb2RpZ28sDQp2b3RfcHJvQ29kaWdvUHJvdmluY2lhLCANCnBhckRlbm9taW5hY2lvbg0KRlJPTQ0KVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpQYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX3Bhc28yMDExLCBwYXN0ZTAocnV0YSwgIi9saXN0YXNfZGlwX3Bhc28yMDExLmNzdiIpKQ0KDQpgYGANCg0KDQoNCg0KIyMgMjAxMw0KDQojIyMgR1JBTA0KDQpgYGB7c3FsIExpc3RhczEzU2VuR3JhbCwgY29ubmVjdGlvbj1BcmcxM0csIG91dHB1dC52YXI9Imxpc3Rhc19kaXBfZ3JhbDIwMTMifQ0KU0VMRUNUIERJU1RJTkNUDQp2b3RfcGFyQ29kaWdvLA0Kdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSwgDQpwYXJEZW5vbWluYWNpb24NCkZST00NClZvdG9zQ2FuZGlkYXR1cmFNZXNhc0ROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9ncmFsMjAxMywgcGFzdGUwKHJ1dGEsICIvbGlzdGFzX2RpcF9ncmFsMjAxMy5jc3YiKSkNCg0KYGBgDQoNCg0KIyMjIFBBU08NCg0KDQpgYGB7c3FsIExpc3RhczEzU2VuUEFTTywgY29ubmVjdGlvbj1BcmcxM1AsIG91dHB1dC52YXI9Imxpc3Rhc19kaXBfcGFzbzIwMTMifQ0KU0VMRUNUIERJU1RJTkNUDQp2b3RfcGFyQ29kaWdvLA0Kdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSwgDQpwYXJEZW5vbWluYWNpb24NCkZST00NClZvdG9zQ2FuZGlkYXR1cmFNZXNhc0ROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9wYXNvMjAxMywgcGFzdGUwKHJ1dGEsICIvbGlzdGFzX2RpcF9wYXNvMjAxMy5jc3YiKSkNCg0KYGBgDQoNCg0KDQojIyAyMDE1IA0KDQojIyMgR1JBTA0KDQpgYGB7c3FsIExpc3RhczE1U2VuR3JhbCwgY29ubmVjdGlvbj1BcmcxNUcsIG91dHB1dC52YXI9Imxpc3Rhc19kaXBfZ3JhbDIwMTUifQ0KU0VMRUNUIERJU1RJTkNUDQp2b3RfcGFyQ29kaWdvLA0Kdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSwgDQpwYXJEZW5vbWluYWNpb24NCkZST00NCk1lc2FzQ2FuZGlkYXR1cmFETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NCk5vbVBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMTUsIHBhc3RlMChydXRhLCAiL2xpc3Rhc19kaXBfZ3JhbDIwMTUuY3N2IikpDQoNCmBgYA0KDQoNCiMjIyBQQVNPDQoNCg0KYGBge3NxbCBMaXN0YXMxNVNlblBBU08sIGNvbm5lY3Rpb249QXJnMTVQLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX3Bhc28yMDE1In0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpNZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpOb21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX3Bhc28yMDE1LCBwYXN0ZTAocnV0YSwgIi9saXN0YXNfZGlwX3Bhc28yMDE1LmNzdiIpKQ0KDQpgYGANCg0KDQoNCiMjIDIwMTcNCg0KIyMjIEdSQUwNCg0KYGBge3NxbCBMaXN0YXMxN1NlbkdyYWwsIGNvbm5lY3Rpb249QXJnMTdHLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX2dyYWwyMDE3In0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpNZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpOb21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX2dyYWwyMDE3LCBwYXN0ZTAocnV0YSwgIi9saXN0YXNfZGlwX2dyYWwyMDE3LmNzdiIpKQ0KDQpgYGANCg0KDQojIyMgUEFTTw0KDQoNCmBgYHtzcWwgTGlzdGFzMTdTZW5QQVNPLCBjb25uZWN0aW9uPUFyZzE3UCwgb3V0cHV0LnZhcj0ibGlzdGFzX2RpcF9wYXNvMjAxNyJ9DQpTRUxFQ1QgRElTVElOQ1QNCnZvdF9wYXJDb2RpZ28sDQp2b3RfcHJvQ29kaWdvUHJvdmluY2lhLCANCnBhckRlbm9taW5hY2lvbg0KRlJPTQ0KTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9wYXNvMjAxNywgcGFzdGUwKHJ1dGEsICIvbGlzdGFzX2RpcF9wYXNvMjAxNy5jc3YiKSkNCg0KYGBgDQoNCg0KDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkV4cG9ydCBMaXN0YXMgRWxlY2Npb25lcyBEaXB1dGFkb3MgZGUgQXJnZW50aW5hcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyIGxpYnJlcmlhcywgZWNobz1GQUxTRSwgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCg0KDQpgYGB7c3FsIERlcHRvc19Qcm92aW5jaWFzLCBjb25uZWN0aW9uPUFyZzE1UCxvdXRwdXQudmFyID0gIkRlcHRvc19Qcm92aW5jaWFzIn0NClNFTEVDVCBESVNUSU5DVA0KZGVwQ29kaWdvRGVwYXJ0YW1lbnRvLA0KZGVwQ29kaWdvUHJvdmluY2lhLA0KZGVwTm9tYnJlDQpGUk9NDQpOb21BbWJpdG9zDQpgYGANCg0KDQoNCiogKipFWFBPUlRPIExJU1RBUyBERSBDQU5ESURBVE9TIERJUFVUQURPUyAoMjAwMyAtIDIwMTcpKioNCg0KDQoNCiMjIDIwMDMNCg0KDQoNCmBgYHtzcWwgTGlzdGFzMDNTZW5HcmFsLCBjb25uZWN0aW9uPUFyZzAzLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX2dyYWwyMDAzIn0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpWb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NClBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsICIuLi9kaXB1dGFkb3MvbGlzdGFzX2RpcF9ncmFsMjAwMy5jc3YiKQ0KDQpgYGANCg0KDQoNCiMjIDIwMDUgDQoNCg0KDQpgYGB7c3FsIExpc3RhczA1U2VuR3JhbCwgY29ubmVjdGlvbj1BcmcwNSwgb3V0cHV0LnZhcj0ibGlzdGFzX2RpcF9ncmFsMjAwNSJ9DQpTRUxFQ1QgRElTVElOQ1QNCnZvdF9wYXJDb2RpZ28sDQp2b3RfcHJvQ29kaWdvUHJvdmluY2lhLCANCnBhckRlbm9taW5hY2lvbg0KRlJPTQ0KVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpQYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX2dyYWwyMDA3LCAiLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMDcuY3N2IikNCg0KYGBgDQoNCiMjIDIwMDcNCg0KDQoNCmBgYHtzcWwgTGlzdGFzMDdTZW5HcmFsLCBjb25uZWN0aW9uPUFyZzA3LCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX2dyYWwyMDA3In0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpWb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NClBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfZ3JhbDIwMDcsICIuLi9kaXB1dGFkb3MvbGlzdGFzX2RpcF9ncmFsMjAwNy5jc3YiKQ0KDQpgYGANCg0KDQojIyAyMDA5DQoNCmBgYHtzcWwgTGlzdGFzMDlTZW4sIGNvbm5lY3Rpb249QXJnMDksIG91dHB1dC52YXI9Imxpc3Rhc19kaXBfZ3JhbDIwMDkifQ0KU0VMRUNUIERJU1RJTkNUDQp2b3RfcGFyQ29kaWdvLA0Kdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSwgDQpwYXJEZW5vbWluYWNpb24NCkZST00NClZvdG9zQ2FuZGlkYXR1cmFNZXNhc0ROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9ncmFsMjAwOSwgIi4uL2RpcHV0YWRvcy9saXN0YXNfZGlwX2dyYWwyMDA5LmNzdiIpDQoNCmBgYA0KDQojIyAyMDExDQoNCiMjIyBHUkFMDQoNCmBgYHtzcWwgTGlzdGFzMTFTZW5HcmFsLCBjb25uZWN0aW9uPUFyZzExRywgb3V0cHV0LnZhcj0ibGlzdGFzX2RpcF9ncmFsMjAxMSJ9DQpTRUxFQ1QgRElTVElOQ1QNCnZvdF9wYXJDb2RpZ28sDQp2b3RfcHJvQ29kaWdvUHJvdmluY2lhLCANCnBhckRlbm9taW5hY2lvbg0KRlJPTQ0KVm90b3NDYW5kaWRhdHVyYU1lc2FzRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpQYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX2dyYWwyMDExLCAiLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfZ3JhbDIwMTEuY3N2IikNCg0KYGBgDQoNCg0KIyMjIFBBU08NCg0KYGBge3NxbCBMaXN0YXMxMVNlblBBU08sIGNvbm5lY3Rpb249QXJnMTFQLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX3Bhc28yMDExIn0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpWb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NClBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTEsICIuLi9kaXB1dGFkb3MvbGlzdGFzX2RpcF9wYXNvMjAxMS5jc3YiKQ0KDQpgYGANCg0KDQoNCg0KIyMgMjAxMw0KDQojIyMgR1JBTA0KDQpgYGB7c3FsIExpc3RhczEzU2VuR3JhbCwgY29ubmVjdGlvbj1BcmcxM0csIG91dHB1dC52YXI9Imxpc3Rhc19kaXBfZ3JhbDIwMTMifQ0KU0VMRUNUIERJU1RJTkNUDQp2b3RfcGFyQ29kaWdvLA0Kdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSwgDQpwYXJEZW5vbWluYWNpb24NCkZST00NClZvdG9zQ2FuZGlkYXR1cmFNZXNhc0ROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9ncmFsMjAxMywgIi4uL2RpcHV0YWRvcy9saXN0YXNfZGlwX2dyYWwyMDEzLmNzdiIpDQoNCmBgYA0KDQoNCiMjIyBQQVNPDQoNCg0KYGBge3NxbCBMaXN0YXMxM1NlblBBU08sIGNvbm5lY3Rpb249QXJnMTNQLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX3Bhc28yMDEzIn0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpWb3Rvc0NhbmRpZGF0dXJhTWVzYXNETmFjaW9uYWxlcyBjIElOTkVSIEpPSU4NClBhcnRpZG9zIHAgT04gYy52b3RfcGFyQ29kaWdvID0gcC5wYXJDb2RpZ28NCi0tV0hFUkUNCi0tdm90X3Byb0NvZGlnb1Byb3ZpbmNpYSA9ICcyMycNCmBgYA0KDQoNCmBgYHtyfQ0Kd3JpdGVfY3N2KGxpc3Rhc19kaXBfcGFzbzIwMTMsICIuLi9kaXB1dGFkb3MvbGlzdGFzX2RpcF9wYXNvMjAxMy5jc3YiKQ0KDQpgYGANCg0KDQoNCiMjIDIwMTUgDQoNCiMjIyBHUkFMDQoNCmBgYHtzcWwgTGlzdGFzMTVTZW5HcmFsLCBjb25uZWN0aW9uPUFyZzE1Rywgb3V0cHV0LnZhcj0ibGlzdGFzX2RpcF9ncmFsMjAxNSJ9DQpTRUxFQ1QgRElTVElOQ1QNCnZvdF9wYXJDb2RpZ28sDQp2b3RfcHJvQ29kaWdvUHJvdmluY2lhLCANCnBhckRlbm9taW5hY2lvbg0KRlJPTQ0KTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9ncmFsMjAxNSwgIi4uL2RpcHV0YWRvcy9saXN0YXNfZGlwX2dyYWwyMDE1LmNzdiIpDQoNCmBgYA0KDQoNCiMjIyBQQVNPDQoNCg0KYGBge3NxbCBMaXN0YXMxNVNlblBBU08sIGNvbm5lY3Rpb249QXJnMTVQLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX3Bhc28yMDE1In0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpNZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpOb21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX3Bhc28yMDE1LCAiLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfcGFzbzIwMTUuY3N2IikNCg0KYGBgDQoNCg0KDQojIyAyMDE3DQoNCiMjIyBHUkFMDQoNCmBgYHtzcWwgTGlzdGFzMTdTZW5HcmFsLCBjb25uZWN0aW9uPUFyZzE3Rywgb3V0cHV0LnZhcj0ibGlzdGFzX2RpcF9ncmFsMjAxNyJ9DQpTRUxFQ1QgRElTVElOQ1QNCnZvdF9wYXJDb2RpZ28sDQp2b3RfcHJvQ29kaWdvUHJvdmluY2lhLCANCnBhckRlbm9taW5hY2lvbg0KRlJPTQ0KTWVzYXNDYW5kaWRhdHVyYUROYWNpb25hbGVzIGMgSU5ORVIgSk9JTg0KTm9tUGFydGlkb3MgcCBPTiBjLnZvdF9wYXJDb2RpZ28gPSBwLnBhckNvZGlnbw0KLS1XSEVSRQ0KLS12b3RfcHJvQ29kaWdvUHJvdmluY2lhID0gJzIzJw0KYGBgDQoNCg0KYGBge3J9DQp3cml0ZV9jc3YobGlzdGFzX2RpcF9ncmFsMjAxNywgIi4uL2RpcHV0YWRvcy9saXN0YXNfZGlwX2dyYWwyMDE3LmNzdiIpDQoNCmBgYA0KDQoNCiMjIyBQQVNPDQoNCg0KYGBge3NxbCBMaXN0YXMxN1NlblBBU08sIGNvbm5lY3Rpb249QXJnMTdQLCBvdXRwdXQudmFyPSJsaXN0YXNfZGlwX3Bhc28yMDE3In0NClNFTEVDVCBESVNUSU5DVA0Kdm90X3BhckNvZGlnbywNCnZvdF9wcm9Db2RpZ29Qcm92aW5jaWEsIA0KcGFyRGVub21pbmFjaW9uDQpGUk9NDQpNZXNhc0NhbmRpZGF0dXJhRE5hY2lvbmFsZXMgYyBJTk5FUiBKT0lODQpOb21QYXJ0aWRvcyBwIE9OIGMudm90X3BhckNvZGlnbyA9IHAucGFyQ29kaWdvDQotLVdIRVJFDQotLXZvdF9wcm9Db2RpZ29Qcm92aW5jaWEgPSAnMjMnDQpgYGANCg0KDQpgYGB7cn0NCndyaXRlX2NzdihsaXN0YXNfZGlwX3Bhc28yMDE3LCAiLi4vZGlwdXRhZG9zL2xpc3Rhc19kaXBfcGFzbzIwMTcuY3N2IikNCg0KYGBgDQoNCg0KDQoNCg==</div>
 
 
 
