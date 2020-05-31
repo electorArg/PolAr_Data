@@ -4830,36 +4830,36 @@ write_csv(tucumangral2009, "../../data/23.TUCUMAN/tucuman_dip_gral2009.csv")
 
 ```{sql tdfgral2009, connection=Arg09,  output.var="tdfgral2009"}
 WITH votos (vot_proCodigoProvincia, vot_depCodigoDepartamento, vot_mesCodigoCircuito, vot_mesCodigoMesa,
-"0003",		
-"0005",	
+"0002",		
+"0003",	
+"0006",	
 "0022",	
-"0047",	
-"0050",		
-"0052",	
-"0055",	
-"0187",	
-"0245",	 	
-"0249",			
-"0250",			
-"0436")
+"0108",		
+"0114",	
+"0120",	
+"0129",	
+"0131",	 	
+"0132",			
+"0134",			
+"0510")
 AS
 (SELECT
         vot_proCodigoProvincia,
         vot_depCodigoDepartamento,
         vot_mesCodigoCircuito,
         vot_mesCodigoMesa,
+              max(CASE WHEN vot_parCodigo = "0002"	 THEN votVotosPartido END), 
               max(CASE WHEN vot_parCodigo = "0003"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0005"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0022"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0047"	 THEN votVotosPartido END),
-              max(CASE WHEN vot_parCodigo = "0050"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0052"	 THEN votVotosPartido END),
-              max(CASE WHEN vot_parCodigo = "0055"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0187"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0245"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0249"	 THEN votVotosPartido END),
-              max(CASE WHEN vot_parCodigo = "0250"	 THEN votVotosPartido END), 
-              max(CASE WHEN vot_parCodigo = "0436"	 THEN votVotosPartido END)
+              max(CASE WHEN vot_parCodigo = "0006"	 THEN votVotosPartido END), 
+              max(CASE WHEN vot_parCodigo = "0022"	 THEN votVotosPartido END),
+              max(CASE WHEN vot_parCodigo = "0108"	 THEN votVotosPartido END), 
+              max(CASE WHEN vot_parCodigo = "0114"	 THEN votVotosPartido END),
+              max(CASE WHEN vot_parCodigo = "0120"	 THEN votVotosPartido END), 
+              max(CASE WHEN vot_parCodigo = "0129"	 THEN votVotosPartido END), 
+              max(CASE WHEN vot_parCodigo = "0131"	 THEN votVotosPartido END), 
+              max(CASE WHEN vot_parCodigo = "0132"	 THEN votVotosPartido END),
+              max(CASE WHEN vot_parCodigo = "0134"	 THEN votVotosPartido END), 
+              max(CASE WHEN vot_parCodigo = "0510"	 THEN votVotosPartido END)
         FROM
         VotosCandidaturaMesasDNacionales
         WHERE
@@ -4884,18 +4884,18 @@ SELECT
         sum(mesElectores) AS electores,
         sum(mesVotosEnBlanco) AS blancos,
         sum(mesVotosNulos) AS nulos,
+              sum("0002") AS "0002", 
               sum("0003") AS "0003", 
-              sum("0005") AS "0005", 
-              sum("0022") AS "0022", 
-              sum("0047") AS "0047",
-              sum("0050") AS "0050", 
-              sum("0052") AS "0052",
-              sum("0055") AS "0055", 
-              sum("0187") AS "0187", 
-              sum("0245") AS "0245", 
-              sum("0249") AS "0249",
-              sum("0250") AS "0250", 
-              sum("0436") AS "0436"
+              sum("0006") AS "0006", 
+              sum("0022") AS "0022",
+              sum("0108") AS "0108", 
+              sum("0114") AS "0114",
+              sum("0120") AS "0120", 
+              sum("0129") AS "0129", 
+              sum("0131") AS "0131", 
+              sum("0132") AS "0132",
+              sum("0134") AS "0134", 
+              sum("0510") AS "0510"
         FROM
         votos
            INNER JOIN MesasDNacionales ON vot_proCodigoProvincia = mes_proCodigoProvincia 
