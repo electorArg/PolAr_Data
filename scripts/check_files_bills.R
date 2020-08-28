@@ -40,7 +40,7 @@ desc_dip <- dip_json %>% flatten() %>% map_chr("title")
 id_dip<- dip_json %>% flatten() %>% map_chr("id")
 fecha_dip<- dip_json %>% flatten() %>% map_chr("date")
 
-diputados <- cbind(id_dip, descripcion_dip, fecha_dip) %>% 
+diputados <- cbind(id_dip, desc_dip, fecha_dip) %>% 
   as_tibble() %>% 
   mutate(camara = "Diputados") %>% 
   rename(id = 1, 
